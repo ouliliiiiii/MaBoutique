@@ -2383,7 +2383,7 @@ span {
       list-style: none;
       width: 20px;
       height: 20px;
-      background-color: var(--theme-color);
+      background-color: red;
       -webkit-animation: animate 25s linear infinite;
               animation: animate 25s linear infinite;
       bottom: -150px;

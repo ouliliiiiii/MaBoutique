@@ -153,8 +153,8 @@
                                                     </span>
                                                 </div>
                                             </li>
-                                            <li><a href="index.htm" class="nav-link menu-title">Home</a></li>
-                                            <li><a href="shop.html" class="nav-link menu-title">Shop</a></li>
+                                            <li><a href="{{route('accueil')}}" class="nav-link menu-title">Accueil</a></li>
+                                            <li><a href="{{route('categories')}}" class="nav-link menu-title">Shop</a></li>
                                             <li><a href="cart/list.html" class="nav-link menu-title">Cart</a></li>
                                             <li><a href="about-us.html" class="nav-link menu-title">About Us</a></li>
                                             <li><a href="contact-us.html" class="nav-link menu-title">Contact Us</a>
