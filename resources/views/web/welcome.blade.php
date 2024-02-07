@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 
 @section('content')
-    <div class="mobile-menu d-sm-none">
+   <!--  <div class="mobile-menu d-sm-none">
         <ul>
             <li>
                 <a href="demo3.php" class="active">
@@ -34,9 +34,9 @@
                 </a>
             </li>
         </ul>
-    </div>
-    <section class="pt-0 poster-section">
-        <div class="poster-image slider-for custome-arrow classic-arrow">
+    </div> -->
+    <section class="pt-0 poster-section" style="border:4px solid green;">
+        <div class="poster-image slider-for custome-arrow classic-arrow" style="border:4px solid yellow;">
             <div>
                 <img src="/frontend/assets/images/furniture-images/poster/1.png" class="img-fluid blur-up lazyload" alt="">
             </div>
@@ -83,20 +83,6 @@
                 <h2>$79.00 <span class="theme-color"><del>$65.00</del></span></h2>
                 <p class="poster-details mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting
                     industry.</p>
-            </div>
-        </div>
-
-        <div class="right-side-contain">
-            <div class="social-image">
-                <h6>Facebook</h6>
-            </div>
-
-            <div class="social-image">
-                <h6>Instagram</h6>
-            </div>
-
-            <div class="social-image">
-                <h6>Twitter</h6>
             </div>
         </div>
     </section>
