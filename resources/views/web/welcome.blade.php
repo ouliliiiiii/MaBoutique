@@ -35,8 +35,8 @@
             </li>
         </ul>
     </div> -->
-    <section class="pt-0 poster-section" style="border:4px solid green;">
-        <div class="poster-image slider-for custome-arrow classic-arrow" style="border:4px solid yellow;">
+    <section class="pt-0 poster-section">
+        <div class="poster-image slider-for custome-arrow classic-arrow" >
             <div>
                 <img src="/frontend/assets/images/furniture-images/poster/1.png" class="img-fluid blur-up lazyload" alt="">
             </div>
@@ -76,24 +76,24 @@
         </div>
 
         <div class="left-side-contain">
-            <div class="banner-left">
+           <!--  <div class="banner-left">
                 <h4>Sale <span class="theme-color">35% Off</span></h4>
                 <h1>New Latest <span>Dresses</span></h1>
                 <p>BUY ONE GET ONE <span class="theme-color">FREE</span></p>
                 <h2>$79.00 <span class="theme-color"><del>$65.00</del></span></h2>
                 <p class="poster-details mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting
                     industry.</p>
-            </div>
+            </div> -->
         </div>
-    </section>
 
+    </section>
     <!-- category section start -->
     <section class="category-section ratio_40">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title title-2 text-center">
-                        <h2>Our Category</h2>
+                        <h2>Nos  Collections</h2>
                         <h5 class="text-color">Our collection</h5>
                     </div>
                 </div>
@@ -102,30 +102,70 @@
                 <div class="col-xxl-2 col-lg-3">
                     <div class="category-wrap category-padding category-block theme-bg-color">
                         <div>
-                            <h2 class="light-text">Top</h2>
-                            <h2 class="top-spacing">Our Top</h2>
+                            <h2 class="light-text">Nos</h2>
+                            <h2 class="top-spacing">Top</h2>
                             <span>Categories</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xxl-10 col-lg-9">
                     <div class="category-wrapper category-slider1 white-arrow category-arrow">
-                            <div>
-                                <a href="#" class="category-wrap category-padding">
-                                    <img src="/frontend/assets/images/fashion/category/1.jpg" class="bg-img blur-up lazyload"
-                                         alt="category image">
-                                    <div class="category-content category-text-1">
-                                        <h3 class="theme-color">Name</h3>
-                                        <span class="text-dark">Name</span>
-                                    </div>
-                                </a>
-                            </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/1.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Shoes</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/2.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Men</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/3.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Jeans</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/4.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Jacket</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/3.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Jeans</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- category section end -->
+    <!-- category section start-->
 
     <style>
         .products-c .bg-size {

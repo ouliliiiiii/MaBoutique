@@ -52,7 +52,7 @@
 
 </head>
 
-<body class="theme-color4 light ltr">
+<body >
 <style>
     header .profile-dropdown ul li {
         display: block;
@@ -112,7 +112,7 @@
 @yield('content')
 
 @include('web.layouts.includes.footer')
-<div class="modal fade newletter-modal" id="newsletter">
+<!-- <div class="modal fade newletter-modal" id="newsletter">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
             <div class="modal-header">
@@ -284,7 +284,7 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 </div>
-<div class="bg-overlay"></div>
+<div class="bg-overlay"></div> -->
 <script src="/frontend/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/frontend/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="/frontend/assets/js/feather/feather.min.js"></script>
