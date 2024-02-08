@@ -203,12 +203,7 @@
                                                      class="bg-img blur-up lazyload" alt="">
                                             </a>
                                         </div>
-                                        <div class="back">
-                                            <a href="product/nihil-beatae-sit-sed.html">
-                                                <img src="/frontend/assets/images/fashion/product/back/4.jpg"
-                                                     class="bg-img blur-up lazyload" alt="">
-                                            </a>
-                                        </div>
+                                       
                                         <div class="cart-wrap">
                                             <ul>
                                                 <li>

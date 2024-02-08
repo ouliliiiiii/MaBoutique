@@ -52,7 +52,7 @@
 
 </head>
 
-<body >
+<body>
 <style>
     header .profile-dropdown ul li {
         display: block;

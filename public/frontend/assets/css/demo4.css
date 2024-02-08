@@ -1,5 +1,5 @@
 :root {
-  --theme-color: #0163d2; }
+  --theme-color: rgb(130, 34, 34); }
 
 .theme-color2 {
   --theme-color: #e22454; }
@@ -563,7 +563,7 @@ span {
     [dir="rtl"] .label-black {
       float: right; }
   .label-theme {
-    background-color: var(--theme-color); }
+    background-color: rgb(130, 34, 34); }
 
 /**=====================
      tab css start
@@ -2379,7 +2379,7 @@ span {
       list-style: none;
       width: 20px;
       height: 20px;
-      background-color: var(--theme-color);
+      background-color: red;
       -webkit-animation: animate 25s linear infinite;
               animation: animate 25s linear infinite;
       bottom: -150px;
@@ -2509,7 +2509,7 @@ header.nav-down .navbar-searchbar {
   left: 0;
   width: 100%;
   margin-top: 0;
-  background-color: #fff;
+  background-color: black;
   -webkit-box-shadow: 0px 4px 10px rgba(23, 32, 90, 0.15);
           box-shadow: 0px 4px 10px rgba(23, 32, 90, 0.15);
   -webkit-transition: all 0.5s ease;
@@ -2915,7 +2915,7 @@ header .profile-dropdown {
 .close-btn {
   padding: 20px;
   font-size: 18px;
-  color: #232323;
+  color: white;
   font-weight: 500;
   text-transform: uppercase;
   border-bottom: 1px solid #ced4da;
@@ -3826,7 +3826,7 @@ header .main-navbar {
 @media (max-width: 1199px) {
   header .main-navbar .nav-menu {
     position: fixed;
-    background-color: #fff;
+    background-color: black;
     width: 300px;
     border-radius: 0;
     padding-bottom: 155px;
@@ -5115,7 +5115,7 @@ header .main-navbar {
           opacity: 1; } }
     .product-box .img-wrapper .circle-shape {
       position: absolute;
-      background-color: rgba(232, 115, 22, 0.04);
+      background-color: rgba(227, 8, 8, 0.04);
       top: -80px;
       left: -80px;
       width: 100%;
@@ -5150,7 +5150,7 @@ header .main-navbar {
       text-orientation: mixed;
       font-weight: bolder;
       font-size: 68px;
-      color: rgba(232, 115, 22, 0.1);
+      color: rgba(227, 37, 8, 0.091);
       -webkit-user-select: none;
          -moz-user-select: none;
           -ms-user-select: none;

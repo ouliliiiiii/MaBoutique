@@ -1,5 +1,5 @@
-<header class="header-style-2" id="home">
-    <div class="main-header navbar-searchbar">
+<header class="header-style-2" id="home" >
+    <div class="main-header navbar-searchbar" >
         <div class="container-fluid-lg">
             <div class="row">
                 <div class="col-lg-12">
@@ -16,7 +16,7 @@
                         <nav>
                             <div class="main-navbar">
                                 <div id="mainnav">
-                                    <div class="toggle-nav">
+                                    <div class="toggle-nav" >
                                         <i class="fa fa-bars sidebar-bar"></i>
                                     </div>
                                     <ul class="nav-menu">
