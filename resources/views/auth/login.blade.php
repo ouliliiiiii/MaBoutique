@@ -8,7 +8,6 @@
             <div class="box">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <input type="hidden" name="_token" value="MkRqEzTGuoSx6LqJUm0OAKxSgNUYt26wTT7RMUZY">
                     <div class="login-title">
                         <h2>Connection</h2>
                     </div>

@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 
 @section('content')
-    <div class="mobile-menu d-sm-none">
+   <!--  <div class="mobile-menu d-sm-none">
         <ul>
             <li>
                 <a href="demo3.php" class="active">
@@ -34,11 +34,11 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div> -->
     <section class="pt-0 poster-section">
-        <div class="poster-image slider-for custome-arrow classic-arrow">
+        <div class="poster-image slider-for custome-arrow classic-arrow" >
             <div>
-                <img src="/frontend/assets/images/furniture-images/poster/1.png" class="img-fluid blur-up lazyload" alt="">
+                <img src="/photo/orgie3.png" style="max-height: 650px;" class="img-fluid blur-up lazyload" alt="">
             </div>
             <div>
                 <img src="/frontend/assets/images/furniture-images/poster/2.png" class="img-fluid blur-up lazyload" alt="">
@@ -50,7 +50,7 @@
         <div class="slider-nav image-show">
             <div>
                 <div class="poster-img">
-                    <img src="/frontend/assets/images/furniture-images/poster/t2.jpg" class="img-fluid blur-up lazyload" alt="">
+                    <img src="/photo/orgie3.png" class="img-fluid blur-up lazyload" alt="">
                     <div class="overlay-color">
                         <i class="fas fa-plus theme-color"></i>
                     </div>
@@ -76,30 +76,54 @@
         </div>
 
         <div class="left-side-contain">
-            <div class="banner-left">
+           <!--  <div class="banner-left">
                 <h4>Sale <span class="theme-color">35% Off</span></h4>
                 <h1>New Latest <span>Dresses</span></h1>
                 <p>BUY ONE GET ONE <span class="theme-color">FREE</span></p>
                 <h2>$79.00 <span class="theme-color"><del>$65.00</del></span></h2>
                 <p class="poster-details mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting
                     industry.</p>
-            </div>
+            </div> -->
         </div>
 
-        <div class="right-side-contain">
-            <div class="social-image">
-                <h6>Facebook</h6>
-            </div>
-
-            <div class="social-image">
-                <h6>Instagram</h6>
-            </div>
-
-            <div class="social-image">
-                <h6>Twitter</h6>
-            </div>
-        </div>
     </section>
+
+
+
+    <div class="container-fluid mt-5" >
+     <div class="row">
+        <div class="col-lg-6" style="padding:7%">
+            <div class="row">
+                <div style="border:2.5px solid white;position:absolute;height:18%;width:35%;margin-top:-4%;margin-left:5%"></div>
+                <div>
+                <img style="width:100%;height: 100%;" src="/photo/accueil.jpg" alt="">
+                </div>
+                <div style="border-left:2.5px solid white;padding:9px;margin-top:4%;color:#fff">
+                    <h1 style="font-size:150%">Accessoires sensuels</h1>
+                    <p class="mt-3">N'avez-vous jamais reve d'uliser des accessoires erotiques pour pimenter vos soiresss? <br>
+                    Apprenez a <span style="color:rgb(130, 34, 34);">jouer a faire l'amour avec des accessoires sensuels</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-5" style="padding:7%;">
+        <div style="border:2.5px solid #DEB887;position:absolute;height:19%;width:33%;margin-top:5%;margin-left:5%"></div>
+            <div>
+              <img style="width:91%;height: 91%;" src="/photo/accueil1.jpg" alt="">
+            </div>
+        </div>
+     </div>
+    </div>
+
+
+<div class="container">
+   <!--  <div class="col-lg-12" style="padding:10%;">
+    <img style="width:91%;height: 91%;" src="/photo/accueil3.jpg" alt="">
+    </div> -->
+</div>
+
+
+
+
 
     <!-- category section start -->
     <section class="category-section ratio_40">
@@ -107,7 +131,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title title-2 text-center">
-                        <h2>Our Category</h2>
+                        <h2>Nos  Collections</h2>
                         <h5 class="text-color">Our collection</h5>
                     </div>
                 </div>
@@ -116,44 +140,90 @@
                 <div class="col-xxl-2 col-lg-3">
                     <div class="category-wrap category-padding category-block theme-bg-color">
                         <div>
-                            <h2 class="light-text">Top</h2>
-                            <h2 class="top-spacing">Our Top</h2>
+                            <h2 class="light-text">Nos</h2>
+                            <h2 class="top-spacing">Top</h2>
                             <span>Categories</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xxl-10 col-lg-9">
-                    <div class="category-wrapper category-slider1 white-arrow category-arrow">
-                            <div>
-                                <a href="#" class="category-wrap category-padding">
-                                    <img src="/frontend/assets/images/fashion/category/1.jpg" class="bg-img blur-up lazyload"
-                                         alt="category image">
-                                    <div class="category-content category-text-1">
-                                        <h3 class="theme-color">Name</h3>
-                                        <span class="text-dark">Name</span>
-                                    </div>
-                                </a>
-                            </div>
+                    <div class="category-wrapper category-slider1 white-arrow category-arrow" >
+                    @foreach($categories as $cat)
+                        <div>
+                            
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/1.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">{{$cat->nom}}</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        @endforeach
+                       <!--  <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/2.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Men</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/3.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Jeans</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/4.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Jacket</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
+                                <img src="assets/images/fashion/category/3.jpg" class="bg-img blur-up lazyload"
+                                    alt="category image">
+                                <div class="category-content category-text-1">
+                                    <h3 class="the">Jeans</h3>
+                                    <span class="text-white">Fashion</span>
+                                </div>
+                            </a>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- category section end -->
+    <!-- category section start-->
 
-    <style>
-        .products-c .bg-size {
-            background-position: center 0 !important;
-        }
-    </style>
+    
+
+
+
+   
+
+
 
     <section class="ratio_asos overflow-hidden pb-5">
         <div class="px-0 container-fluid p-sm-0">
             <div class="row m-0">
                 <div class="col-12 p-0">
                     <div class="title-3 text-center">
-                        <h2>Fashion Top Deals</h2>
-                        <h5 class="theme-color">Our Collection</h5>
+                        <h2 style="color: gray;">Mega Deals</h2>
+                        <h5 style="color:rgb(130, 34, 34);">Promo sur nos collants</h5>
                     </div>
                 </div>
 
@@ -162,16 +232,16 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="product/details.html">
-                                    <img src="/frontend/assets/images/fashion/product/front/25.jpg"
+                                    <img src="/photo/collant1.jpeg"
                                          class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>
-                                <span class="background-text">Fashion</span>
+                                <span class="background-text">Sexy</span>
                                 <div class="label-block">
-                                    <span class="label label-theme">30% Off</span>
+                                    <span class="label label-theme">-30%</span>
                                 </div>
-                                <div class="cart-wrap">
-                                    <ul>
+                                <div class="cart-wrap" >
+                                    <ul >
                                         <li>
                                             <a href="javascript:void(0)" class="addtocart-btn" data-bs-toggle="modal"
                                                data-bs-target="#addtocart">
@@ -217,9 +287,9 @@
                                         </div>
                                     </div>
                                     <p class="font-light mb-sm-2 mb-0">Multicolor Dress</p>
-                                    <a href="product/details.html" class="font-default">
+                                   <!--  <a href="product/details.html" class="font-default">
                                         <h5>Skater Multicolor Dress</h5>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -228,13 +298,13 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="product/details.html">
-                                    <img src="/frontend/assets/images/fashion/product/front/26.jpg"
+                                    <img src="/photo/collant2.jpeg"
                                          class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>
-                                <span class="background-text">Fashion</span>
+                                <span class="background-text">Sexy</span>
                                 <div class="label-block">
-                                    <span class="label label-theme">30% Off</span>
+                                    <span class="label label-theme">-30%</span>
                                 </div>
                                 <div class="cart-wrap">
                                     <ul>
@@ -283,9 +353,9 @@
                                         </div>
                                     </div>
                                     <p class="font-light mb-sm-2 mb-0">Multicolor Dress</p>
-                                    <a href="product/details.html" class="font-default">
+                                   <!--  <a href="product/details.html" class="font-default">
                                         <h5>Skater Multicolor Dress</h5>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -294,13 +364,13 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="product/details.html">
-                                    <img src="/frontend/assets/images/fashion/product/front/27.jpg"
+                                    <img src="/photo/collant3.jpeg"
                                          class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>
-                                <span class="background-text">Fashion</span>
+                                <span class="background-text">sexy</span>
                                 <div class="label-block">
-                                    <span class="label label-theme">30% Off</span>
+                                    <span class="label label-theme">-30%</span>
                                 </div>
                                 <div class="cart-wrap">
                                     <ul>
@@ -349,9 +419,9 @@
                                         </div>
                                     </div>
                                     <p class="font-light mb-sm-2 mb-0">Multicolor Dress</p>
-                                    <a href="product/details.html" class="font-default">
+                                 <!--    <a href="product/details.html" class="font-default">
                                         <h5>Skater Multicolor Dress</h5>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -360,13 +430,13 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="product/details.html">
-                                    <img src="/frontend/assets/images/fashion/product/front/28.jpg"
+                                    <img src="/photo/collant4.jpeg"
                                          class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>
-                                <span class="background-text">Fashion</span>
+                                <span class="background-text">Sexy</span>
                                 <div class="label-block">
-                                    <span class="label label-theme">30% Off</span>
+                                    <span class="label label-theme">-30%</span>
                                 </div>
                                 <div class="cart-wrap">
                                     <ul>
@@ -415,9 +485,9 @@
                                         </div>
                                     </div>
                                     <p class="font-light mb-sm-2 mb-0">Multicolor Dress</p>
-                                    <a href="product/details.html" class="font-default">
+                                   <!--  <a href="product/details.html" class="font-default">
                                         <h5>Skater Multicolor Dress</h5>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -426,13 +496,13 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="product/details.html">
-                                    <img src="/frontend/assets/images/fashion/product/front/29.jpg"
+                                    <img src="/photo/collant5.jpeg"
                                          class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>
-                                <span class="background-text">Fashion</span>
+                                <span class="background-text">sexy</span>
                                 <div class="label-block">
-                                    <span class="label label-theme">30% Off</span>
+                                    <span class="label label-theme">-30% </span>
                                 </div>
                                 <div class="cart-wrap">
                                     <ul>
@@ -481,9 +551,9 @@
                                         </div>
                                     </div>
                                     <p class="font-light mb-sm-2 mb-0">Multicolor Dress</p>
-                                    <a href="product/details.html" class="font-default">
+                                   <!--  <a href="product/details.html" class="font-default">
                                         <h5>Skater Multicolor Dress</h5>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -492,13 +562,13 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="product/details.html">
-                                    <img src="/frontend/assets/images/fashion/product/front/30.jpg"
+                                    <img src="/photo/collant6.jpeg"
                                          class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>
-                                <span class="background-text">Fashion</span>
+                                <span class="background-text">sexy</span>
                                 <div class="label-block">
-                                    <span class="label label-theme">30% Off</span>
+                                    <span class="label label-theme">-30%</span>
                                 </div>
                                 <div class="cart-wrap">
                                     <ul>
@@ -547,16 +617,16 @@
                                         </div>
                                     </div>
                                     <p class="font-light mb-sm-2 mb-0">Multicolor Dress</p>
-                                    <a href="product/details.html" class="font-default">
+                                    <!-- <a href="product/details.html" class="font-default">
                                         <h5>Skater Multicolor Dress</h5>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
+                   <!--  <div>
                         <div class="product-box">
-                            <div class="img-wrapper">
+                            <div class="img-wrapper" >
                                 <a href="product/details.html">
                                     <img src="/frontend/assets/images/fashion/product/front/31.jpg"
                                          class="w-100 bg-img blur-up lazyload" alt="">
@@ -685,7 +755,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

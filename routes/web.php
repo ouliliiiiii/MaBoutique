@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('web.welcome');
-})->name('accueil');
+Route::get('/',[CategoryController::class, 'index' ])->name('accueil');
 
 Route::get('/shop', function () {
     return view('web.shop');
