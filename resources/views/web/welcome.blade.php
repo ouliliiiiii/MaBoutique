@@ -38,7 +38,7 @@
     <section class="pt-0 poster-section">
         <div class="poster-image slider-for custome-arrow classic-arrow" >
             <div>
-                <img src="/frontend/assets/images/furniture-images/poster/1.png" class="img-fluid blur-up lazyload" alt="">
+                <img src="/photo/orgie3.png" style="max-height: 650px;" class="img-fluid blur-up lazyload" alt="">
             </div>
             <div>
                 <img src="/frontend/assets/images/furniture-images/poster/2.png" class="img-fluid blur-up lazyload" alt="">
@@ -50,7 +50,7 @@
         <div class="slider-nav image-show">
             <div>
                 <div class="poster-img">
-                    <img src="/frontend/assets/images/furniture-images/poster/t2.jpg" class="img-fluid blur-up lazyload" alt="">
+                    <img src="/photo/orgie3.png" class="img-fluid blur-up lazyload" alt="">
                     <div class="overlay-color">
                         <i class="fas fa-plus theme-color"></i>
                     </div>
@@ -87,6 +87,44 @@
         </div>
 
     </section>
+
+
+
+    <div class="container-fluid mt-5" >
+     <div class="row">
+        <div class="col-lg-6" style="padding:7%">
+            <div class="row">
+                <div style="border:2.5px solid white;position:absolute;height:18%;width:35%;margin-top:-4%;margin-left:5%"></div>
+                <div>
+                <img style="width:100%;height: 100%;" src="/photo/accueil.jpg" alt="">
+                </div>
+                <div style="border-left:2.5px solid white;padding:9px;margin-top:4%;color:#fff">
+                    <h1 style="font-size:150%">Accessoires sensuels</h1>
+                    <p class="mt-3">N'avez-vous jamais reve d'uliser des accessoires erotiques pour pimenter vos soiresss? <br>
+                    Apprenez a <span style="color:rgb(130, 34, 34);">jouer a faire l'amour avec des accessoires sensuels</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-5" style="padding:7%;">
+        <div style="border:2.5px solid #DEB887;position:absolute;height:19%;width:33%;margin-top:5%;margin-left:5%"></div>
+            <div>
+              <img style="width:91%;height: 91%;" src="/photo/accueil1.jpg" alt="">
+            </div>
+        </div>
+     </div>
+    </div>
+
+
+<div class="container">
+   <!--  <div class="col-lg-12" style="padding:10%;">
+    <img style="width:91%;height: 91%;" src="/photo/accueil3.jpg" alt="">
+    </div> -->
+</div>
+
+
+
+
+
     <!-- category section start -->
     <section class="category-section ratio_40">
         <div class="container-fluid">
@@ -109,18 +147,22 @@
                     </div>
                 </div>
                 <div class="col-xxl-10 col-lg-9">
-                    <div class="category-wrapper category-slider1 white-arrow category-arrow">
+                    <div class="category-wrapper category-slider1 white-arrow category-arrow" >
+                    @foreach($categories as $cat)
                         <div>
+                            
                             <a href="shop-left-sidebar.html" class="category-wrap category-padding">
                                 <img src="assets/images/fashion/category/1.jpg" class="bg-img blur-up lazyload"
                                     alt="category image">
                                 <div class="category-content category-text-1">
-                                    <h3 class="the">Shoes</h3>
+                                    <h3 class="the">{{$cat->nom}}</h3>
                                     <span class="text-white">Fashion</span>
                                 </div>
                             </a>
+                            
                         </div>
-                        <div>
+                        @endforeach
+                       <!--  <div>
                             <a href="shop-left-sidebar.html" class="category-wrap category-padding">
                                 <img src="assets/images/fashion/category/2.jpg" class="bg-img blur-up lazyload"
                                     alt="category image">
@@ -159,7 +201,7 @@
                                     <span class="text-white">Fashion</span>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -167,11 +209,13 @@
     </section>
     <!-- category section start-->
 
-    <style>
-        .products-c .bg-size {
-            background-position: center 0 !important;
-        }
-    </style>
+    
+
+
+
+   
+
+
 
     <section class="ratio_asos overflow-hidden pb-5">
         <div class="px-0 container-fluid p-sm-0">

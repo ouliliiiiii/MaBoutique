@@ -69,16 +69,23 @@
                                     </div>
                                     <div class="onhover-div profile-dropdown">
                                             <ul>
+                                                    @auth
                                                     <li>
-                                                        <a href="#" class="d-block">Déconnection</a>
-                                                        
+                                                        <a onclick="event.preventDefault();document.getElementById('fo').submit()" href="{{route('logout')}}" class="d-block">Déconnection</a>
+                                                        <form id="fo" action="{{route('logout')}}" method="post">
+                                                            @method('post')
+                                                            @csrf
+                                                        </form>
                                                     </li>
+                                                    @else
                                                     <li>
                                                         <a href="{{route('login')}}" class="d-block">Connecter</a>
                                                     </li>
                                                     <li>
                                                         <a href="{{route('register')}}" class="d-block">S'inscrire</a>
                                                     </li>
+
+                                                    @endauth
                                             </ul>
                                     </div>
                                 </li>
