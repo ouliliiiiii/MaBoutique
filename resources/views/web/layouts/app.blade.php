@@ -50,6 +50,7 @@
     </style>
     <link rel="stylesheet" href="/frontend/assets/css/custom.css">
     @stack('styles')
+    @stack('scripts')
   
 
 </head>

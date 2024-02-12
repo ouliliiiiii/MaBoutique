@@ -166,10 +166,9 @@
                                     </div>
                                     <div class="dropdown select-featured">
                                         <select class="form-select" name="size" id="pagesize">
-                                            <option value="12" selected="">12 Products Per Page</option>
+                                            <option value="8" selected="">8 Products Per Page</option>
+                                            <option value="16">16 Products Per Page</option>
                                             <option value="24">24 Products Per Page</option>
-                                            <option value="52">52 Products Per Page</option>
-                                            <option value="100">100 Products Per Page</option>
                                         </select>
                                     </div>
                                 </div>
@@ -272,11 +271,24 @@
                         @endforeach
                     </div>
                     <nav class="page-section">
-                    {{$produit->links()}}
+                    
                     </nav>
 
                 </div>
             </div>
         </div>
     </section>
+    <form id="frm" method="get">
+        <input type="hidden" name="page" value="1">
+        <input type="hidden" name="size" value="8">
+    </form>
 @endsection
+
+@push('scripts')
+    <script>
+        document.getElementById('pagesize').addEventListener('change', function() {
+            console.log('coucou')
+            //$('#frm').submit();
+        })
+    </script>
+@endpush
