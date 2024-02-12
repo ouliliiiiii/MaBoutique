@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Produits;
 
 class CategoryController extends Controller
 {
@@ -15,9 +16,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        //recuperation de produits en promo
+        $produit=Produits::where('is_solde',true)->get()->take(6);
         $categories=\App\Models\Category::all();
-       
-        return view('web.welcome',['categories'=>$categories]);
+        return view('web.welcome',[
+            'categories'=>$categories,
+            'produit'=>$produit
+        ]);
     }
 
     /**

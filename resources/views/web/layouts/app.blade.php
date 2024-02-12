@@ -21,6 +21,7 @@
     <meta name="keywords" content="Surfside Media">
     <meta name="author" content="Surfside Media">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/07af00a225.js" crossorigin="anonymous"></script>
 
     <title>SurfsideMedia</title>
 
@@ -49,6 +50,8 @@
     </style>
     <link rel="stylesheet" href="/frontend/assets/css/custom.css">
     @stack('styles')
+    @stack('scripts')
+  
 
 </head>
 
@@ -305,6 +308,9 @@
         $('[data-bs-toggle="tooltip"]').tooltip()
     });
 </script>
+
+<script src="path/to/jquery/jquery.min.js"></script>
+<script src="path/to/jquery.stellar.min.js"></script>
 
 </body>
 
