@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProduitsRequest;
 use App\Http\Requests\UpdateProduitsRequest;
 use App\Models\Category;
 use App\Models\Produits;
+use Illuminate\Http\Request;
 
 class ProduitsController extends Controller
 {
@@ -14,11 +15,17 @@ class ProduitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all();
-        $produit=Produits::find(1)->get();
+        $page=$request->query('page');
+        $size=$request->query('size');
+        if(!$page)
+            $page=1;
+        if(!$size)
+            $size=4;
 
+        $categories = Category::all();
+        $produit=Produits::orderBy('created_at', 'ASC')->paginate($size);
         return view('web.shop', [
             'produit' => $produit,
             'categories' => $categories
@@ -52,11 +59,17 @@ class ProduitsController extends Controller
      * @param  \App\Models\Produits  $produits
      * @return \Illuminate\Http\Response
      */
-    public function show($Ouli)
+    public function show($id)
     {
-        $produit=Produits::findOrFail($Ouli)->get();
+        //pour recuperer le detail du produits passe en parametre
+            $p = Produits::findOrFail($id);
+
+        //pour recuperer d autres produits de facon aleatoire
+            $produits=Produits::where('id', '!=', $id)->inRandomOrder('id')->get()->take(6);
+
         return view('web.detail', [
-            'produit' => $produit
+            'p' => $p,
+            'produits' => $produits
         ]);
     }
 

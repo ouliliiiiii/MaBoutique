@@ -20,6 +20,6 @@ Route::get('/',[CategoryController::class, 'index' ])->name('accueil');
 
 Route::get('/shop',[ProduitsController::class, 'index' ])->name('shop');
 
-Route::get('/detail/{ouli}',[ProduitsController::class, 'show' ])->name('detail');
+Route::get('/detail/{id}',[ProduitsController::class, 'show' ])->name('detail');
 
 require __DIR__.'/auth.php';

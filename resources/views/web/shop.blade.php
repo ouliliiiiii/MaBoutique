@@ -48,10 +48,12 @@
                                                     <div class="form-check ps-0 custome-form-check">
                                                         <input class="checkbox_animated check-it" id="ct1" name="categories" type="checkbox" value="1">
                                                         <label class="form-check-label">{{$c->nom}}</label>
-                                                        <p class="font-light">{{$c->produits()->count()}}</p>
+                                                        <p class="font-light">
+                                                            {{$c->produits()->count()}}
+                                                        </p>
                                                         @foreach($c->produits as $prod)
                                                         <div>
-                                                            {{$prod->nom}}
+                                                                {{$prod->nom}}
                                                         </div>
                                                         @endforeach
 
@@ -220,12 +222,12 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="">
+                                                    <a href="{{route('detail', $p->id)}}">
                                                         <i data-feather="eye"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{route('detail', $p->id)}}" class="wishlist">
+                                                    <a href="" class="wishlist">
                                                         <i data-feather="heart"></i>
                                                     </a>
                                                 </li>
@@ -253,16 +255,8 @@
                                                 </li>
                                             </ul>
                                     </div>
-                                        <div class="main-price">
-                                            <a href="#" class="font-default">
-                                                <h5 class="ms-0"> {{$p->category->nom}} </h5>
-                                            </a>
-                                            <div class="listing-content">
-                                                <span class="font-dark">{{$p->nom}}</span>
-                                                <p class="font-light">
-                                                    votre description
-                                                </p>
-                                            </div>
+                                        <div class="main-price">    
+                                                <h5 class="ms-0"> {{$p->nom}}</h5>
                                             @if ($p->is_solde == true)
                                              <h3 class="theme-color">{{$p->remise($p->prix, $p->remise)}} CFA</h3>
                                              <h3 class="theme-color"><del>{{$p->prix}} CFA</del></h3>
@@ -278,10 +272,7 @@
                         @endforeach
                     </div>
                     <nav class="page-section">
-                        <ul class="pagination">
-                            
-
-                        </ul>
+                    {{$produit->links()}}
                     </nav>
 
                 </div>
