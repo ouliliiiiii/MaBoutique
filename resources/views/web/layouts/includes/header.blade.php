@@ -1,4 +1,4 @@
-<header class="header-style-2" id="home" >
+<header class="header-style-2" id="home" style="background-color:black">
     <div class="main-header navbar-searchbar" >
         <div class="container-fluid-lg">
             <div class="row">
@@ -46,7 +46,7 @@
                                 <li class="onhover-dropdown wislist-dropdown">
                                     <div class="cart-media">
                                         <a href="wishlist/list.html">
-                                            <i data-feather="heart"></i>
+                                        <i class="fa-regular fa-heart"></i>
                                             <span id="wishlist-count" class="label label-theme rounded-pill">
                                                     0
                                                 </span>
@@ -56,7 +56,7 @@
                                 <li class="onhover-dropdown wislist-dropdown">
                                     <div class="cart-media">
                                         <a href="cart/list.html">
-                                            <i data-feather="shopping-cart"></i>
+                                        <i class="fa-solid fa-cart-shopping"></i>
                                             <span id="cart-count" class="label label-theme rounded-pill">
                                                     0
                                                 </span>

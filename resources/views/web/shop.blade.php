@@ -30,7 +30,8 @@
                 <div class="col-lg-3 category-side col-md-4">
                     <div class="category-option">
                         <div class="button-close mb-3">
-                            <button class="btn p-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Close</button>
+                            <button class="btn p-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Close</button>
                         </div>
                         <div class="accordion category-name" id="accordionExample">
                             <div class="accordion-item category-rating">
@@ -42,21 +43,28 @@
                                 <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingOne">
                                     <div class="accordion-body category-scroll">
                                         <ul class="category-list">
-
+                                            @foreach($categories as $c)
                                                 <li>
                                                     <div class="form-check ps-0 custome-form-check">
                                                         <input class="checkbox_animated check-it" id="ct1" name="categories" type="checkbox" value="1">
-                                                        <label class="form-check-label">Nom de la categorie</label>
-                                                        <p class="font-light">4</p>
+                                                        <label class="form-check-label">{{$c->nom}}</label>
+                                                        <p class="font-light">{{$c->produits()->count()}}</p>
+                                                        @foreach($c->produits as $prod)
+                                                        <div>
+                                                            {{$prod->nom}}
+                                                        </div>
+                                                        @endforeach
+
                                                     </div>
                                                 </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item category-price">
                                 <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">Price</button>
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">Prix</button>
                                 </h2>
                                 <div id="collapseFour" class="accordion-collapse collapse show"
                                      aria-labelledby="headingFour" data-bs-parent="#accordionExample">
@@ -67,7 +75,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item category-color">
+                            <!-- <div class="accordion-item category-color">
                                 <h2 class="accordion-header" id="headingThree">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
                                         Color
@@ -124,7 +132,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -194,13 +202,13 @@
 
                     <!-- Prodcut setion -->
                     <div class="row g-sm-4 g-3 row-cols-lg-4 row-cols-md-3 row-cols-2 mt-1 custom-gy-5 product-style-2 ratio_asos product-list-section">
+                        @foreach($produit as $p)
                             <div>
                                 <div class="product-box">
                                     <div class="img-wrapper">
                                         <div class="front">
-                                            <a href="product/nihil-beatae-sit-sed.html">
-                                                <img src="/frontend/assets/images/fashion/product/front/4.jpg"
-                                                     class="bg-img blur-up lazyload" alt="">
+                                            <a href="{{route('detail', $p->id)}}">
+                                                <img src="{{ asset('photo/bienetre/'.$p->photo)}}" class="bg-img blur-up lazyload" alt="">
                                             </a>
                                         </div>
                                        
@@ -212,12 +220,12 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript:void(0)">
+                                                    <a href="">
                                                         <i data-feather="eye"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript:void(0)" class="wishlist">
+                                                    <a href="{{route('detail', $p->id)}}" class="wishlist">
                                                         <i data-feather="heart"></i>
                                                     </a>
                                                 </li>
@@ -226,7 +234,7 @@
                                     </div>
                                     <div class="product-details">
                                         <div class="rating-details">
-                                            <span class="font-light grid-content">Categorie du produit</span>
+                                            <span class="font-light grid-content"></span>
                                             <ul class="rating mt-0">
                                                 <li>
                                                     <i class="fas fa-star theme-color"></i>
@@ -244,23 +252,30 @@
                                                     <i class="fas fa-star"></i>
                                                 </li>
                                             </ul>
-                                        </div>
+                                    </div>
                                         <div class="main-price">
                                             <a href="#" class="font-default">
-                                                <h5 class="ms-0">Nom du produit</h5>
+                                                <h5 class="ms-0"> {{$p->category->nom}} </h5>
                                             </a>
                                             <div class="listing-content">
-                                                <span class="font-dark">Nom du produit</span>
+                                                <span class="font-dark">{{$p->nom}}</span>
                                                 <p class="font-light">
                                                     votre description
                                                 </p>
                                             </div>
-                                            <h3 class="theme-color">$19</h3>
+                                            @if ($p->is_solde == true)
+                                             <h3 class="theme-color">{{$p->remise($p->prix, $p->remise)}} CFA</h3>
+                                             <h3 class="theme-color"><del>{{$p->prix}} CFA</del></h3>
+                                            @else
+                                            <h3 class="theme-color">{{$p->prix}} CFA</h3>
+                                            @endif
+                                            
                                             <button class="btn listing-content">Add To Cart</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endforeach
                     </div>
                     <nav class="page-section">
                         <ul class="pagination">

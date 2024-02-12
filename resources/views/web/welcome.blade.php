@@ -48,31 +48,31 @@
             </div>
         </div>
         <div class="slider-nav image-show">
-            <div>
+           <!--  <div>
                 <div class="poster-img">
-                    <img src="/photo/orgie3.png" class="img-fluid blur-up lazyload" alt="">
+              -->       <!-- <img src="/photo/orgie3.png" class="img-fluid blur-up lazyload" alt="">
                     <div class="overlay-color">
                         <i class="fas fa-plus theme-color"></i>
-                    </div>
-                </div>
+                    </div> -->
+              <!--   </div>
             </div>
             <div>
                 <div class="poster-img">
-                    <img src="/frontend/assets/images/furniture-images/poster/t1.jpg" class="img-fluid blur-up lazyload" alt="">
+                 -->   <!--  <img src="/frontend/assets/images/furniture-images/poster/t1.jpg" class="img-fluid blur-up lazyload" alt="">
                     <div class="overlay-color">
                         <i class="fas fa-plus theme-color"></i>
-                    </div>
-                </div>
+                    </div> -->
+               <!--  </div>
 
             </div>
             <div>
                 <div class="poster-img">
-                    <img src="/frontend/assets/images/furniture-images/poster/t3.jpg" class="img-fluid blur-up lazyload" alt="">
+              -->     <!--   <img src="/frontend/assets/images/furniture-images/poster/t3.jpg" class="img-fluid blur-up lazyload" alt="">
                     <div class="overlay-color">
                         <i class="fas fa-plus theme-color"></i>
-                    </div>
-                </div>
-            </div>
+                    </div> -->
+               <!--  </div>
+            </div> -->
         </div>
 
         <div class="left-side-contain">
@@ -94,11 +94,11 @@
      <div class="row">
         <div class="col-lg-6" style="padding:7%">
             <div class="row">
-                <div style="border:2.5px solid white;position:absolute;height:18%;width:35%;margin-top:-4%;margin-left:5%"></div>
+                <div style="border:2.5px solid black;position:absolute;height:16.5%;width:35%;margin-top:-4%;margin-left:5%"></div>
                 <div>
                 <img style="width:100%;height: 100%;" src="/photo/accueil.jpg" alt="">
                 </div>
-                <div style="border-left:2.5px solid white;padding:9px;margin-top:4%;color:#fff">
+                <div style="border-left:2.5px solid black;padding:9px;margin-top:4%;color:black">
                     <h1 style="font-size:150%">Accessoires sensuels</h1>
                     <p class="mt-3">N'avez-vous jamais reve d'uliser des accessoires erotiques pour pimenter vos soiresss? <br>
                     Apprenez a <span style="color:rgb(130, 34, 34);">jouer a faire l'amour avec des accessoires sensuels</span></p>
@@ -106,7 +106,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-5" style="padding:7%;">
-        <div style="border:2.5px solid #DEB887;position:absolute;height:19%;width:33%;margin-top:5%;margin-left:5%"></div>
+        <div style="border:2.5px solid #DEB887;position:absolute;height:17.3%;width:33%;margin-top:5%;margin-left:5%"></div>
             <div>
               <img style="width:91%;height: 91%;" src="/photo/accueil1.jpg" alt="">
             </div>
@@ -208,13 +208,25 @@
         </div>
     </section>
     <!-- category section start-->
-
+<style>
+    .section-3 {
+        height: 500px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('/photo/parallax.png');
+        }
+</style>
+    <section>
+    <div class="site-section section-3">
+      <div class="container">
+        
+        </div>
+      </div>
+    </div>
+    </section>
     
-
-
-
-   
-
 
 
     <section class="ratio_asos overflow-hidden pb-5">
@@ -762,4 +774,5 @@
         </div>
     </section>
     <div id="qvmodal"></div>
+   
 @endsection

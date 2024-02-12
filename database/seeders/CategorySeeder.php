@@ -16,8 +16,8 @@ class CategorySeeder extends Seeder
     {
        Category::create(
         [
-         'nom'=>'Bijou de corps',
-         'photo'=>''
+         'nom' => 'lingerie de nuit',
+         'photo' => ''
         ]
         );
     }

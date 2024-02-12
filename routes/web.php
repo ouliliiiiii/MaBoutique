@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProduitsController;
+use App\Models\Produits;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[CategoryController::class, 'index' ])->name('accueil');
 
-Route::get('/shop', function () {
-    return view('web.shop');
-})->name('shop');
+Route::get('/shop',[ProduitsController::class, 'index' ])->name('shop');
+
+Route::get('/detail/{ouli}',[ProduitsController::class, 'show' ])->name('detail');
 
 require __DIR__.'/auth.php';
