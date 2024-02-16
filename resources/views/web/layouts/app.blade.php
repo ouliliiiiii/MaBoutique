@@ -50,7 +50,7 @@
     </style>
     <link rel="stylesheet" href="/frontend/assets/css/custom.css">
     @stack('styles')
-    @stack('scripts')
+    
   
 
 </head>
@@ -109,6 +109,18 @@
             padding: 5px 12px;
         }
     }
+    
+    .icon
+    {
+        color:white;
+        font-size:20px;
+    }
+    .icon:hover
+    {
+          color:rgb(130, 34, 34);  
+    }
+
+
 </style>
 @include('web.layouts.includes.header')
 
@@ -311,6 +323,7 @@
 
 <script src="path/to/jquery/jquery.min.js"></script>
 <script src="path/to/jquery.stellar.min.js"></script>
+@stack('scripts')
 
 </body>
 

@@ -94,36 +94,71 @@
      <div class="row">
         <div class="col-lg-6" style="padding:7%">
             <div class="row">
-                <div style="border:2.5px solid black;position:absolute;height:16.5%;width:35%;margin-top:-4%;margin-left:5%"></div>
+                <div style="border:2.5px solid black;position:absolute;height:580px;width:35%;margin-top:-4%;margin-left:5%"></div>
                 <div>
                 <img style="width:100%;height:100%;" src="/photo/accueil.jpg" alt="">
                 </div>
-                <div style="border-left:2.5px solid black;padding:9px;margin-top:4%;color:black">
+                <div style="border-left:2.5px solid black;padding:9px;margin-top:30px;color:black">
                     <h1 style="font-size:150%">Accessoires sensuels</h1>
-                    <p class="mt-3">N'avez-vous jamais reve d'uliser des accessoires erotiques pour pimenter vos soiresss? <br>
+                    <p class="mt-3">N'avez-vous jamais reve d'uliser des accessoires erotiques pour pimenter vos soirees? <br>
                     Apprenez a <span style="color:rgb(130, 34, 34);">jouer a faire l'amour avec des accessoires sensuels</span></p>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 mt-5" style="padding:7%;">
-        <div style="border:2.5px solid #DEB887;position:absolute;height:17.3%;width:33%;margin-top:5%;margin-left:5%"></div>
+        <div style="border:2.5px solid #DEB887;position:absolute;height:580px;width:33%;margin-top:5%;margin-left:5%"></div>
             <div>
               <img style="width:91%;height: 91%;" src="/photo/accueil1.jpg" alt="">
             </div>
+            <div style="border-left:2.5px solid black;padding:9px;margin-top:60px;color:black">
+                    <h1 style="font-size:150%">Accessoires de lingere sexy</h1>
+                    <p class="mt-3">Les chaines de corps delicates,les masques inspires de la dentelle , les accessoires pour tetons etc sont une facon
+                    <span style="color:rgb(130, 34, 34);">excitante</span> de faire passer  <br>votre lingerie au niveau superieur 
+                     en ajoutant <span style="color:rgb(130, 34, 34);"> une touche de pli bondage</span></p>
+                </div>
         </div>
      </div>
     </div>
 
 
-<div class="container">
-   <!--  <div class="col-lg-12" style="padding:10%;">
-    <img style="width:91%;height: 91%;" src="/photo/accueil3.jpg" alt="">
-    </div> -->
-</div>
-
-
-
-
+    <style>
+    .section-3 
+    {
+        height: 650px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('/photo/parallax.jpeg');
+        }
+        .pa
+        {
+            padding: 20%;
+        }
+        .achat
+        {
+            font-size:170%;
+            color: black;
+        }
+        .achat:hover
+        {
+            color:rgb(130, 34, 34);
+        }
+     
+</style>
+    <section>
+            <div class="pa site-section section-3">
+                <div class="container">
+                    <div class=" title-3 text-center">
+                        <h2 style="font-size:270%">Enfilez nos lingeries sexy </h2>
+                        <h3 style="font-size:170%;color:rgb(130, 34, 34);">Et offrez vous un plaisir enorme</h3>
+                        <a href="{{route('shop')}}"><h5 class="achat ">Achetez des maintenant</h5></a> 
+                        <hr style="margin:auto;width:35%;border-top:2px solid black">
+                    </div>
+                </div>
+            </div>
+    </section>
+    
 
     <!-- category section start -->
     <section class="category-section ratio_40">
@@ -131,8 +166,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title title-2 text-center">
-                        <h2>Nos  Collections</h2>
-                        <h5 class="text-color">Our collection</h5>
+                        <h2 style="color:black">Nos  Collections</h2>
                     </div>
                 </div>
             </div>
@@ -152,82 +186,24 @@
                         <div>
                             
                             <a href="shop-left-sidebar.html" class="category-wrap category-padding">
-                                <img src="assets/images/fashion/category/1.jpg" class="bg-img blur-up lazyload"
+                                <img src="{{asset('photo/'.$cat->photo)}}" class="bg-img blur-up lazyload"
                                     alt="category image">
                                 <div class="category-content category-text-1">
                                     <h3 class="the">{{$cat->nom}}</h3>
-                                    <span class="text-white">Fashion</span>
+                                    <span style="color:black">Seduction</span>
                                 </div>
                             </a>
                             
                         </div>
                         @endforeach
-                       <!--  <div>
-                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
-                                <img src="assets/images/fashion/category/2.jpg" class="bg-img blur-up lazyload"
-                                    alt="category image">
-                                <div class="category-content category-text-1">
-                                    <h3 class="the">Men</h3>
-                                    <span class="text-white">Fashion</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
-                                <img src="assets/images/fashion/category/3.jpg" class="bg-img blur-up lazyload"
-                                    alt="category image">
-                                <div class="category-content category-text-1">
-                                    <h3 class="the">Jeans</h3>
-                                    <span class="text-white">Fashion</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
-                                <img src="assets/images/fashion/category/4.jpg" class="bg-img blur-up lazyload"
-                                    alt="category image">
-                                <div class="category-content category-text-1">
-                                    <h3 class="the">Jacket</h3>
-                                    <span class="text-white">Fashion</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="shop-left-sidebar.html" class="category-wrap category-padding">
-                                <img src="assets/images/fashion/category/3.jpg" class="bg-img blur-up lazyload"
-                                    alt="category image">
-                                <div class="category-content category-text-1">
-                                    <h3 class="the">Jeans</h3>
-                                    <span class="text-white">Fashion</span>
-                                </div>
-                            </a>
-                        </div> -->
+                       
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- category section start-->
-<style>
-    .section-3 
-    {
-        height: 500px; 
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url('/photo/parallax.png');
-        }
-</style>
-    <section>
-        <div class="site-section section-3">
-        <div class="container">
-            
-            </div>
-        </div>
-        </div>
-    </section>
-    
+
 
 
     <section class="ratio_asos overflow-hidden pb-5">
@@ -236,7 +212,7 @@
                 <div class="col-12 p-0">
                     <div class="title-3 text-center">
                         <h2 style="color: gray;">Mega Deals</h2>
-                        <h5 style="color:rgb(130, 34, 34);">Promo sur nos collants</h5>
+                        <h5 style="color:rgb(130, 34, 34);">Profitez de nos reductions de certains de nos articles</h5>
                     </div>
                 </div>
              
@@ -245,7 +221,7 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="product/details.html">
-                                    <img src="/photo/collant1.jpeg"
+                                    <img src="{{asset('photo/'.$pr->photo)}}"
                                          class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>
@@ -262,7 +238,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                            <a href="{{route('detail', $pr->id)}}" data-bs-toggle="modal"
                                                data-bs-target="#quick-view">
                                                 <i data-feather="eye"></i>
                                             </a>
@@ -278,7 +254,10 @@
                             <div class="product-style-3 product-style-chair">
                                 <div class="product-title d-block mb-0">
                                     <div class="r-price">
-                                        <div class="theme-color">$21</div>
+                                        <div class="theme-color">
+                                            <del>{{$pr->prix}} CFA</del> 
+                                            {{$pr->remise($pr->prix, $pr->remise)}} CFA
+                                    </div>
                                         <div class="main-price">
                                             <ul class="rating mb-1 mt-0">
                                                 <li>
@@ -311,6 +290,9 @@
             </div>
         </div>
     </section>
-    <div id="qvmodal"></div>
+
+    <div id="qvmodal">
+
+    </div>
    
 @endsection
