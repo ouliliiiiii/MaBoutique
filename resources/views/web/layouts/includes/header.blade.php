@@ -30,7 +30,7 @@
                                         <li><a href="{{route('accueil')}}" class="nav-link menu-title">Accueil</a></li>
                                         <li><a href="{{route('shop')}}" class="nav-link menu-title">Boutique</a></li>
                                         <li><a href="#" class="nav-link menu-title">A propos de nous</a></li>
-                                        <li><a href="#" class="nav-link menu-title">Nous contacter</a>
+                                        <li><a href="{{route('contact')}}" class="nav-link menu-title">Nous contacter</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -38,34 +38,31 @@
                         </nav>
                         <div class="menu-right">
                             <ul>
-                                <li>
-                                    <div class="search-box theme-bg-color">
-                                        <i data-feather="search"></i>
-                                    </div>
-                                </li>
                                 <li class="onhover-dropdown wislist-dropdown">
                                     <div class="cart-media">
-                                        <a href="wishlist/list.html">
-                                        <i class="fa-regular fa-heart"></i>
+                                        <a href="{{route('wishlist')}}">
+                                        <i class="icon fa-regular fa-heart"></i>
                                             <span id="wishlist-count" class="label label-theme rounded-pill">
                                                     0
                                                 </span>
                                         </a>
                                     </div>
                                 </li>
+                             
                                 <li class="onhover-dropdown wislist-dropdown">
                                     <div class="cart-media">
-                                        <a href="cart/list.html">
-                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        <a href="#">
+                                        <i class=" icon fa-solid fa-cart-shopping"></i>
                                             <span id="cart-count" class="label label-theme rounded-pill">
                                                     0
                                                 </span>
                                         </a>
                                     </div>
                                 </li>
+                              
                                 <li class="onhover-dropdown">
-                                    <div class="cart-media name-usr">
-                                        <i data-feather="user"></i>
+                                    <div class="cart-media ">
+                                    <i class=" icon fa-regular fa-user"></i>
                                     </div>
                                     <div class="onhover-div profile-dropdown">
                                             <ul>

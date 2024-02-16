@@ -16,8 +16,8 @@ class CategorySeeder extends Seeder
     {
        Category::create(
         [
-         'nom' => 'lingerie de nuit',
-         'photo' => ''
+         'nom' => 'Bijoux de corps',
+         'photo' => 'bijou.jpeg'
         ]
         );
     }

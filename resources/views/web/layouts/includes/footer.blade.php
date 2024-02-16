@@ -53,25 +53,17 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                     <div class="footer-links">
                         <div class="footer-title">
-                            <h3>New Categories</h3>
+                            <h3>Nos Categories</h3>
+                           
                         </div>
                         <div class="footer-content">
                             <ul>
+                                @foreach($categories_share as $ch)
                                 <li>
-                                    <a href="shop.html" class="font-dark">Latest Shoes</a>
+                                    <a href="{{route('shop')}}" class="font-dark">{{$ch->nom}}</a>
                                 </li>
-                                <li>
-                                    <a href="shop.html" class="font-dark">Branded Jeans</a>
-                                </li>
-                                <li>
-                                    <a href="shop.html" class="font-dark">New Jackets</a>
-                                </li>
-                                <li>
-                                    <a href="shop.html" class="font-dark">Colorfull Hoodies</a>
-                                </li>
-                                <li>
-                                    <a href="shop.html" class="font-dark">Shiner Goggles</a>
-                                </li>
+                                @endforeach
+                               
                             </ul>
                         </div>
                     </div>
@@ -152,7 +144,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <p class="mb-0 font-dark">© 2023, Surfside Media.</p>
+                    <p class="mb-0 font-dark">© 2024, Surfside Media.</p>
                 </div>
             </div>
         </div>

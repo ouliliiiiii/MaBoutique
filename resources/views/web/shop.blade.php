@@ -46,16 +46,15 @@
                                             @foreach($categories as $c)
                                                 <li>
                                                     <div class="form-check ps-0 custome-form-check">
-                                                        <input class="checkbox_animated check-it" id="ct1" name="categories" type="checkbox" value="1">
+                                                        <input class="checkbox_animated check-it" id="ct{{$c->id}}" name="categories" type="checkbox" 
+                                                        @if(in_array($c->id, explode(',', $cate))) 
+                                                        checked 
+                                                        @endif 
+                                                        value="{{$c->id}}" onclick="sendCate(this)">
                                                         <label class="form-check-label">{{$c->nom}}</label>
                                                         <p class="font-light">
                                                             {{$c->produits()->count()}}
                                                         </p>
-                                                        @foreach($c->produits as $prod)
-                                                        <div>
-                                                                {{$prod->nom}}
-                                                        </div>
-                                                        @endforeach
 
                                                     </div>
                                                 </li>
@@ -140,37 +139,30 @@
                 </div>
 
                 <div class="category-product col-lg-9 col-12 ratio_30">
-
                     <div class="row g-4">
-                        <!-- label and featured section -->
-                        <div class="col-md-12">
-                            <ul class="short-name">
-
-
-                            </ul>
-                        </div>
-
                         <div class="col-12">
                             <div class="filter-options">
-                                <div class="select-options">
-                                    <div class="page-view-filter">
-                                        <div class="dropdown select-featured">
-                                            <select class="form-select" name="orderby" id="orderby">
-                                                <option value="-1" selected="">Default</option>
-                                                <option value="1">Date, New To Old</option>
-                                                <option value="2">Date, Old To New</option>
-                                                <option value="3">Price, Low To High</option>
-                                                <option value="4">Price, High To Low</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                <div class="select-options">    
                                     <div class="dropdown select-featured">
                                         <select class="form-select" name="size" id="pagesize">
-                                            <option value="8" selected="">8 Products Per Page</option>
-                                            <option value="16">16 Products Per Page</option>
-                                            <option value="24">24 Products Per Page</option>
+                                        <option value="4" {{$size == 4 ? 'selected':''}}>4 Produits par page</option>
+                                            <option value="8" {{$size == 8 ? 'selected':''}}>8 Produits par page</option>
+                                            <option value="16" {{$size == 16 ? 'selected':''}}>16 Produits par page</option>
+                                            <option value="24" {{$size == 24 ? 'selected':''}}>24 Produits par page</option>
                                         </select>
                                     </div>
+                                </div>
+                              
+                                <div>
+                                    <form class="card-body" action="{{route('shop')}}" method="GET" role="search">
+                                        {{ csrf_field() }}
+                                        <div class="input-group">
+                                            <input type="text" class="form-control"  placeholder="Rechercher..." name="q">
+                                            <span class="input-group-btn">
+                                        <button class="btn btn-secondary" type="submit">Rechercher</button>
+                                    </span>
+                                 </div>
+                                </form>
                                 </div>
                                 <div class="grid-options d-sm-inline-block d-none">
                                     <ul class="d-flex">
@@ -203,13 +195,13 @@
 
                     <!-- Prodcut setion -->
                     <div class="row g-sm-4 g-3 row-cols-lg-4 row-cols-md-3 row-cols-2 mt-1 custom-gy-5 product-style-2 ratio_asos product-list-section">
-                        @foreach($produit as $p)
+                        @forelse($produit as $p)
                             <div>
                                 <div class="product-box">
                                     <div class="img-wrapper">
                                         <div class="front">
                                             <a href="{{route('detail', $p->id)}}">
-                                                <img src="{{ asset('photo/bienetre/'.$p->photo)}}" class="bg-img blur-up lazyload" alt="">
+                                                <img src="{{ asset('photo/'.$p->photo)}}" class="bg-img blur-up lazyload" alt="">
                                             </a>
                                         </div>
                                        
@@ -234,26 +226,7 @@
                                         </div>
                                     </div>
                                     <div class="product-details">
-                                        <div class="rating-details">
-                                            <span class="font-light grid-content"></span>
-                                            <ul class="rating mt-0">
-                                                <li>
-                                                    <i class="fas fa-star theme-color"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star theme-color"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                            </ul>
-                                    </div>
+                                       
                                         <div class="main-price">    
                                                 <h5 class="ms-0"> {{$p->nom}}</h5>
                                             @if ($p->is_solde == true)
@@ -263,12 +236,19 @@
                                             <h3 class="theme-color">{{$p->prix}} CFA</h3>
                                             @endif
                                             
-                                            <button class="btn listing-content">Add To Cart</button>
+                                            <button class="btn listing-content">Ajouter au panier</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                         @empty
+                         <div class="col-lg-12 text-center" >
+                            <h2 style="margin-top: 12%;">
+                                Aucun resultat trouve pour : <?php  echo $_GET['q'] ?>
+                            </h2>     
+                             </div>
+                           
+                        @endforelse
                     </div>
                     <nav class="page-section">
                     
@@ -278,17 +258,43 @@
             </div>
         </div>
     </section>
+<!--     infos passe en url -->  
     <form id="frm" method="get">
-        <input type="hidden" name="page" value="1">
-        <input type="hidden" name="size" value="8">
+        <input type="hidden" name="page" id="page" value="{{$page}}">
+        <input type="hidden" name="size" id="size" value="{{$size}}">
+        <input type="hidden" name="cate" id="cate" value="{{$cate}}">
     </form>
+    <!-- <form id="rec" method="get">
+        <input type="hidden" name="q" id="q" value="{{}}">
+    </form> 
+function blur a revoir-->
 @endsection
 
 @push('scripts')
     <script>
-        document.getElementById('pagesize').addEventListener('change', function() {
-            console.log('coucou')
-            //$('#frm').submit();
-        })
+        $(function(){
+            //
+            $('#pagesize').on('change', function() {
+                //console.log('coucou')
+                $('#size').val($('#pagesize option:selected').val());
+                $('#frm').submit();
+            })      
+        });
+
+       function sendCate(cate) {
+            let tab = "";
+            //recuperation des checkbox cochees
+            $('input[name="categories"]:checked').each(function () {
+                if (tab === "") {
+                    tab += this.value;       
+                } else {
+                    tab += ',' + this.value; 
+                }
+                $('#cate').val(tab);
+                $('#frm').submit();
+                    
+            })
+        }
+        
     </script>
 @endpush

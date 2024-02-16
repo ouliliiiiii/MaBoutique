@@ -69,15 +69,15 @@
                                      <div class="col-lg-2">
                                         <div class="details-image-vertical black-slide rounded">
                                             <div>
-                                                <img src="{{asset('photo/bienetre/'.$p->photo)}}"
+                                                <img src="{{asset('photo/'.$p->photo)}}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
                                             <div>
-                                                <img src="{{asset('photo/bienetre/'.$p->photo)}}"
+                                                <img src="{{asset('photo/'.$p->photo)}}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
                                             <div>
-                                                <img src="{{asset('photo/bienetre/'.$p->photo)}}"
+                                                <img src="{{asset('photo/'.$p->photo)}}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
                                             <div>
@@ -89,22 +89,22 @@
                                     <div class="col-lg-10" >
                                         <div class="details-image-1 ratio_asos">
                                             <div>
-                                                <img src="{{asset('photo/bienetre/'.$p->photo)}}" id="zoom_01"
+                                                <img src="{{asset('photo/'.$p->photo)}}" id="zoom_01"
                                                     data-zoom-image=""
                                                     class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="">
                                             </div>
                                             <div>
-                                                <img src="{{asset('photo/bienetre/'.$p->photo)}}.jpg" id="zoom_02"
+                                                <img src="{{asset('photo/'.$p->photo)}}.jpg" id="zoom_02"
                                                     data-zoom-image="assets/images/fashion/2.jpg"
                                                     class="img-fluid w-100 image_zoom_cls-1 blur-up lazyload" alt="">
                                             </div>
                                             <div>
-                                                <img src="{{asset('photo/bienetre/'.$p->photo)}}" id="zoom_03"
+                                                <img src="{{asset('photo/'.$p->photo)}}" id="zoom_03"
                                                     data-zoom-image="assets/images/fashion/3.jpg"
                                                     class="img-fluid w-100 image_zoom_cls-2 blur-up lazyload" alt="">
                                             </div>
                                             <div>
-                                                <img src="{{asset('photo/bienetre/'.$p->photo)}}" id="zoom_04"
+                                                <img src="{{asset('photo/'.$p->photo)}}" id="zoom_04"
                                                     data-zoom-image="assets/images/fashion/4.jpg"
                                                     class="img-fluid w-100 image_zoom_cls-3 blur-up lazyload" alt="">
                                             </div>
@@ -136,19 +136,19 @@
                                             <ul class="image-section">
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <img src=""
+                                                        <img src="{{asset('photo/'.$p->photo)}}"
                                                             class="img-fluid blur-up lazyload" alt="">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <img src="../assets/images/fashion/product/front/6.jpg"
+                                                        <img src="{{asset('photo/'.$p->photo)}}"
                                                             class="img-fluid blur-up lazyload" alt="">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <img src="../assets/images/fashion/product/front/7.jpg"
+                                                        <img src="{{asset('photo/'.$p->photo)}}"
                                                             class="img-fluid blur-up lazyload" alt="">
                                                     </a>
                                                 </li>
@@ -204,22 +204,17 @@
                                     </div>
 
                                     <div class="product-buttons">
-                                        <a href="javascript:void(0)" class="btn btn-solid">
+                                        <a href="#" class="btn btn-solid">
                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                             <span>Wishlist</span>
                                         </a>
-                                        <a href="javascript:void(0)"                                            
+                                        <a href="{{route('ajoutpanier')}}" onclick="event.preventDefault; document.getElementById('addtocart').submit()"                                            
                                             id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                             <i class="fa fa-shopping-cart"></i>
-                                            <span>Add To Cart</span>
-                                            <form id="addtocart" method="post"
-                                                action="http://localhost:8000/cart/store">
-                                                <input type="hidden" name="_token"
-                                                    value="MkRqEzTGuoSx6LqJUm0OAKxSgNUYt26wTT7RMUZY"> <input
-                                                    type="hidden" name="id" value="1">
-                                                <input type="hidden" name="name"
-                                                    value="Autem Repudiandae Accusantium Blanditiis">
-                                                <input type="hidden" name="price" value="13">
+                                            <span>Ajouter au panier</span>
+                                            <form id="addtocart" action="{{route('ajoutpanier')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="product_id" id="p_id" value="{{$p->id}}">
                                                 <input type="hidden" name="quantity" id="qty" value="1">
                                             </form>
                                         </a>
@@ -228,36 +223,12 @@
 
                                     </div>
 
-                                    <ul class="product-count shipping-order">
-                                        <li>
-                                            <img src="../assets/images/gif/truck.png" class="img-fluid blur-up lazyload"
-                                                alt="image">
-                                            <span class="lang">Free shipping for orders above $500 USD</span>
-                                        </li>
-                                    </ul>
-
                                     <div class="mt-2 mt-md-3 border-product">
-                                        <h6 class="product-title hurry-title d-block">Hurry Up! Left <span>10</span> in
+                                        <h6 class="product-title hurry-title d-block">Hurry Up! Left <span>{{$p->quantite}}</span> in
                                             stock</h6>
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 78%"></div>
-                                        </div>
-                                        <div class="font-light timer-5">
-                                            <h5>Order in the next to get</h5>
-                                            <ul class="timer1">
-                                                <li class="counter">
-                                                    <h5 id="days">&#9251;</h5> Days :
-                                                </li>
-                                                <li class="counter">
-                                                    <h5 id="hours">&#9251;</h5> Hour :
-                                                </li>
-                                                <li class="counter">
-                                                    <h5 id="minutes">&#9251;</h5> Min :
-                                                </li>
-                                                <li class="counter">
-                                                    <h5 id="seconds">&#9251;</h5> Sec
-                                                </li>
-                                            </ul>
+                                            <div class="progress-bar" role="progressbar" style="width:{{$p->quantite}}%">
+                                            </div>
                                         </div>
                                     </div>
 
@@ -305,12 +276,6 @@
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                     data-bs-target="#desc" type="button">Description</button>
-
-                                <button class="nav-link" id="nav-speci-tab" data-bs-toggle="tab" data-bs-target="#speci"
-                                    type="button">Specifications</button>
-
-                                <button class="nav-link" id="nav-size-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-guide" type="button">Sizing Guide</button>
 
                                 <button class="nav-link" id="nav-question-tab" data-bs-toggle="tab"
                                     data-bs-target="#question" type="button">Q & A</button>
@@ -399,141 +364,6 @@
                                                 class="img-fluid rounded blur-up lazyload" alt="">
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="speci">
-                                <div class="pro mb-4">
-                                    <p class="font-light">The Model is wearing a white blouse from our stylist's
-                                        collection, see the image for a mock-up of what the actual blouse would look
-                                        like.it has text written on it in a black cursive language which looks great
-                                        on a white color.</p>
-                                    <div class="table-responsive">
-                                        <table class="table table-part">
-                                            <tr>
-                                                <th>Product Dimensions</th>
-                                                <td>15 x 15 x 3 cm; 250 Grams</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Date First Available</th>
-                                                <td>5 April 2021</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Manufacturer‏</th>
-                                                <td>Aditya Birla Fashion and Retail Limited</td>
-                                            </tr>
-                                            <tr>
-                                                <th>ASIN</th>
-                                                <td>B06Y28LCDN</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Item model number</th>
-                                                <td>AMKP317G04244</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Department</th>
-                                                <td>Men</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Item Weight</th>
-                                                <td>250 G</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Item Dimensions LxWxH</th>
-                                                <td>15 x 15 x 3 Centimeters</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Net Quantity</th>
-                                                <td>1 U</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Included Components‏</th>
-                                                <td>1-T-shirt</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Generic Name</th>
-                                                <td>T-shirt</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade overflow-auto" id="nav-guide">
-                                <div class="table-responsive">
-                                    <table class="table table-pane mb-0">
-                                        <tbody>
-                                            <tr class="bg-color">
-                                                <th class="my-2">US Sizes</th>
-                                                <td>6</td>
-                                                <td>6.5</td>
-                                                <td>7</td>
-                                                <td>8</td>
-                                                <td>8.5</td>
-                                                <td>9</td>
-                                                <td>9.5</td>
-                                                <td>10</td>
-                                                <td>10.5</td>
-                                                <td>11</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Euro Sizes</th>
-                                                <td>39</td>
-                                                <td>39</td>
-                                                <td>40</td>
-                                                <td>40-41</td>
-                                                <td>41</td>
-                                                <td>41-42</td>
-                                                <td>42</td>
-                                                <td>42-43</td>
-                                                <td>43</td>
-                                                <td>43-44</td>
-                                            </tr>
-
-                                            <tr class="bg-color">
-                                                <th>UK Sizes</th>
-                                                <td>5.5</td>
-                                                <td>6</td>
-                                                <td>6.5</td>
-                                                <td>7</td>
-                                                <td>7.5</td>
-                                                <td>8</td>
-                                                <td>8.5</td>
-                                                <td>9</td>
-                                                <td>10.5</td>
-                                                <td>11</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>Inches</th>
-                                                <td>9.25"</td>
-                                                <td>9.5"</td>
-                                                <td>9.625"</td>
-                                                <td>9.75"</td>
-                                                <td>9.9735"</td>
-                                                <td>10.125"</td>
-                                                <td>10.25"</td>
-                                                <td>10.5"</td>
-                                                <td>10.765"</td>
-                                                <td>10.85</td>
-                                            </tr>
-
-                                            <tr class="bg-color">
-                                                <th>CM</th>
-                                                <td>23.5</td>
-                                                <td>24.1</td>
-                                                <td>24.4</td>
-                                                <td>25.4</td>
-                                                <td>25.7</td>
-                                                <td>26</td>
-                                                <td>26.7</td>
-                                                <td>27</td>
-                                                <td>27.3</td>
-                                                <td>27.5</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
 
@@ -719,7 +549,7 @@
 
                                             <div class="customer-section">
                                                 <div class="customer-profile">
-                                                    <img src="../assets/images/inner-page/review-image/1.jpg"
+                                                    <img src="{{asset('photo/'.$p->photo)}}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
 
@@ -758,7 +588,7 @@
 
                                             <div class="customer-section">
                                                 <div class="customer-profile">
-                                                    <img src="../assets/images/inner-page/review-image/2.jpg"
+                                                    <img src="{{asset('photo/'.$p->photo)}}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
 
@@ -877,14 +707,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="mb-lg-4 mb-3">Customers Also Bought These</h2>
+                    <h2 class="mb-lg-4 mb-3">Autres Produits</h2>
                     <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow bottom-space">
                          @foreach($produits as $prod)
                          <div class="product-box">
                                 <div class="img-wrapper">
                                     <div class="front">
                                         <a href="details.html">
-                                            <img src="{{asset('photo/bienetre/' . $prod->photo)}}"
+                                            <img src="{{asset('photo/' . $prod->photo)}}"
                                                 class="bg-img blur-up lazyload" alt="">
                                         </a>
                                     </div>
