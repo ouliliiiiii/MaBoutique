@@ -30,9 +30,12 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 
 Route::get('/wishlist',[WishlistController::class,'index'])->name('wishlist');
 
-//Route::get('/cart',[CartController::class,'index'])->name('panier');
+Route::get('/cart',[CartController::class,'index'])->name('panier');
 
-Route::post('panier',[CartController::class,'add'])->name('ajoutpanier');
+Route::post('/panier',[CartController::class,'add'])->name('ajoutpanier');
+
+Route::put('/panier/update',[CartController::class,'update'])->name('updatepanier');
+
 
 
 require __DIR__.'/auth.php';
