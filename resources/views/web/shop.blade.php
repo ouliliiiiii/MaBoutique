@@ -51,7 +51,7 @@
                                                         checked 
                                                         @endif 
                                                         value="{{$c->id}}" onclick="sendCate(this)">
-                                                        <label class="form-check-label">{{$c->nom}}</label>
+                                                        <label class="form-check-label">{{$c->getNom()}}</label>
                                                         <p class="font-light">
                                                             {{$c->produits()->count()}}
                                                         </p>

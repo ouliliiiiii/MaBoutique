@@ -186,10 +186,10 @@
                         <div>
                             
                             <a href="shop-left-sidebar.html" class="category-wrap category-padding">
-                                <img src="{{asset('photo/'.$cat->photo)}}" class="bg-img blur-up lazyload"
+                                <img src="{{asset('photo/'.$cat->getPhoto())}}" class="bg-img blur-up lazyload"
                                     alt="category image">
                                 <div class="category-content category-text-1">
-                                    <h3 class="the">{{$cat->nom}}</h3>
+                                    <h3 class="the">{{$cat->getNom()}}</h3>
                                     <span style="color:black">Seduction</span>
                                 </div>
                             </a>

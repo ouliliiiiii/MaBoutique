@@ -15,4 +15,24 @@ class Category extends Model
     {
       return $this->hasMany(produits::class,'category_id','id');
     }
+
+
+    // Mes Getters et Setters
+    public function getNom() {
+
+      return strtoupper($this->attributes['nom']);
+    }
+
+    public function setNom($nom) {
+      $this->attributes['nom'] = $nom;
+    }
+
+    public function getPhoto() {
+
+      return strtoupper($this->attributes['photo']);
+    }
+
+    public function setPhoto($photo) {
+      $this->attributes['photo'] = $photo;
+    }
 }

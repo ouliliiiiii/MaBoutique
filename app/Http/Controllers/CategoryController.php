@@ -6,9 +6,17 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use App\Models\Produits;
+use App\Interfaces\CategorieInterface;
 
 class CategoryController extends Controller
 {
+
+    private $cateService;
+    
+
+    public function __construct(CategorieInterface $cate) {
+        $this->cateService = $cate;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +26,7 @@ class CategoryController extends Controller
     {
         //recuperation de produits en promo
         $produit=Produits::where('is_solde',true)->get()->take(6);
-        $categories=\App\Models\Category::all();
+        $categories = $this->cateService->all();
         return view('web.welcome',[
             'categories'=>$categories,
             'produit'=>$produit

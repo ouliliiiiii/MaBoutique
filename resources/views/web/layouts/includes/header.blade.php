@@ -51,10 +51,10 @@
                              
                                 <li class="onhover-dropdown wislist-dropdown">
                                     <div class="cart-media">
-                                        <a href="#">
+                                        <a href="{{route('panier')}}">
                                         <i class=" icon fa-solid fa-cart-shopping"></i>
                                             <span id="cart-count" class="label label-theme rounded-pill">
-                                                    0
+                                                    {{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->content()->count()}}
                                                 </span>
                                         </a>
                                     </div>

@@ -124,8 +124,8 @@
                                     </div>
                                     @if ($p->is_solde == true)
                                         <h3 class="price-detail">{{$p->remise($p->prix, $p->remise)}} CFA</h3>
-                                        <del>{{$p->prix}} CFA</del>
-                                        <span> - {{$p->remise}}%</span>
+                                        <del> {{$p->prix}} CFA</del>
+                                        <span> - {{$p->remise}} %</span>
                                     @else
                                         <h3 class="price-detail">{{$p->prix}} CFA</h3>
                                     @endif
@@ -208,19 +208,18 @@
                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                             <span>Wishlist</span>
                                         </a>
-                                        <a href="{{route('ajoutpanier')}}" onclick="event.preventDefault; document.getElementById('addtocart').submit()"                                            
-                                            id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+
+                                                       
+                                        <a href="{{route('ajoutpanier')}}" onclick="event.preventDefault(); document.getElementById('addtocart').submit()"                                            
+                                          id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                             <i class="fa fa-shopping-cart"></i>
                                             <span>Ajouter au panier</span>
                                             <form id="addtocart" action="{{route('ajoutpanier')}}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="product_id" id="p_id" value="{{$p->id}}">
-                                                <input type="hidden" name="quantity" id="qty" value="1">
-                                            </form>
-                                        </a>
-
-
-
+                                                <input type="hidden" name="quantity" id="qty" >
+                                            </form> 
+                                        </a> 
                                     </div>
 
                                     <div class="mt-2 mt-md-3 border-product">
@@ -952,5 +951,15 @@
             </div>
         </div>
     </div>
+
+
+
+<form action="{{route('updatepanier')}}" method="post" id="updatecart">
+    @csrf
+    @method('put')
+    <input type="hidden" name="product_id" id="p_id" value="rowId">
+    <input type="hidden" name="quantity" id="quantite" value="quantite">
+</form>
  
 @endsection
+
