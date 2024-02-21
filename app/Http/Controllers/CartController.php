@@ -32,28 +32,19 @@ class CartController extends Controller
     Cart::instance('cart')->add(
       $p->id,
       $p->nom,
-      $request->input('quantity'),
+      $request->input('quantite'),
       $pr,
     )->associate('App\Models\Produits');
     return redirect()->back();
   }
 
-
-  public function updatecart(Request $request)
+  public function removeItem(Request $request)
   {
-    $p = Produits::find($request->input('product_id'));
-    $pr = 0;
-    if ($p->is_solde == false)
-      $pr = $p->prix;
-    elseif ($p->is_solde == true)
-      $pr = $p->remise($p->prix, $p->remise);
-    $p = Produits::find($request->input('product_id'));
-    Cart::instance('cart')->update(
-      $p->id,
-      $p->nom,
-      $request->input('quantity'),
-      $pr,
-    )->associate('App\Models\Produits');
+    $product_id=$request->product_id;
+    dd($product_id);
+    Cart::instance('cart')->remove($product_id);
     return redirect()->back();
   }
+
+
 }

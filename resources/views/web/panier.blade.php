@@ -175,13 +175,6 @@
         </div>
     </section>
 
-<form action="{{route('updatepanier')}}" method="post" id="updatecart">
-    @csrf
-    @method('put')
-    <input type="hidden" name="product_id" id="p_id" value="rowId">
-    <input type="hidden" name="quantity" id="quantite" value="quantite">
-</form>
-
 @endsection
    
 

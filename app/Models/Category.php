@@ -20,7 +20,7 @@ class Category extends Model
     // Mes Getters et Setters
     public function getNom() {
 
-      return strtoupper($this->attributes['nom']);
+      return $this->attributes['nom'];
     }
 
     public function setNom($nom) {
@@ -29,7 +29,7 @@ class Category extends Model
 
     public function getPhoto() {
 
-      return strtoupper($this->attributes['photo']);
+      return $this->attributes['photo'];
     }
 
     public function setPhoto($photo) {

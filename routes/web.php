@@ -34,7 +34,7 @@ Route::get('/cart',[CartController::class,'index'])->name('panier');
 
 Route::post('/panier',[CartController::class,'add'])->name('ajoutpanier');
 
-Route::put('/panier/update',[CartController::class,'update'])->name('updatepanier');
+Route::delete('/panier/remove',[CartController::class,'removeItem'])->name('retirerpanier');
 
 
 
