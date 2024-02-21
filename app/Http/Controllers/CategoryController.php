@@ -10,11 +10,9 @@ use App\Interfaces\CategorieInterface;
 
 class CategoryController extends Controller
 {
-
     private $cateService;
-    
-
-    public function __construct(CategorieInterface $cate) {
+    public function __construct(CategorieInterface $cate) 
+    {
         $this->cateService = $cate;
     }
     /**
@@ -24,9 +22,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //recuperation de produits en promo
-        $produit=Produits::where('is_solde',true)->get()->take(6);
+        $produit=$this->cateService->getPromo();
+
         $categories = $this->cateService->all();
+        
         return view('web.welcome',[
             'categories'=>$categories,
             'produit'=>$produit

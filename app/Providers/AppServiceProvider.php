@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //avoir une vu sur toute les pages
         view()->share('categories_share', Category::orderBy('id','DESC')->get()->take(5));
     }
 }
