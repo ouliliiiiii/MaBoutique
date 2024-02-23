@@ -1,41 +1,7 @@
 @extends('web.layouts.app')
 
 @section('content')
-
-    <div class="mobile-menu d-sm-none">
-        <ul>
-            <li>
-                <a href="demo3.php" class="active">
-                    <i data-feather="home"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="align-justify"></i>
-                    <span>Category</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="shopping-bag"></i>
-                    <span>Cart</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="heart"></i>
-                    <span>Wishlist</span>
-                </a>
-            </li>
-            <li>
-                <a href="user-dashboard.php">
-                    <i data-feather="user"></i>
-                    <span>Account</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+p
     <section class="breadcrumb-section section-b-space" style="padding-top:20px;padding-bottom:20px;">
         <ul class="circles">
             <li></li>
@@ -124,8 +90,8 @@
                                     </div>
                                     @if ($p->is_solde == true)
                                         <h3 class="price-detail">{{$p->remise($p->prix, $p->remise)}} CFA</h3>
-                                        <del>{{$p->prix}} CFA</del>
-                                        <span> - {{$p->remise}}%</span>
+                                        <del> {{$p->prix}} CFA</del>
+                                        <span> - {{$p->remise}} %</span>
                                     @else
                                         <h3 class="price-detail">{{$p->prix}} CFA</h3>
                                     @endif
@@ -162,7 +128,7 @@
                                                 data-bs-target="#sizemodal">size chart</a>
                                         </h6>
 
-                                        <h6 class="error-message">please select size</h6>
+                                        <!-- <h6 class="error-message">please select size</h6>
 
                                         <div class="size-box">
                                             <ul>
@@ -179,7 +145,7 @@
                                                     <a href="javascript:void(0)">xl</a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
 
                                         <h6 class="product-title product-title-2 d-block">Quantite</h6>
 
@@ -191,8 +157,10 @@
                                                         <i class="fas fa-minus"></i>
                                                     </button>
                                                 </span>
-                                                <input type="text" name="quantity" id="quantity"
+
+                                                <input type="text" name="quantite" id="q"
                                                     class="form-control input-number" value="1">
+
                                                 <span class="input-group-prepend">
                                                     <button type="button" class="btn quantity-right-plus"
                                                         onclick="updateQuantity()" data-type="plus" data-field="">
@@ -208,19 +176,18 @@
                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                             <span>Wishlist</span>
                                         </a>
-                                        <a href="{{route('ajoutpanier')}}" onclick="event.preventDefault; document.getElementById('addtocart').submit()"                                            
-                                            id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+<!--                                         event.preventDefault(); document.getElementById('addtocart').submit()
+ -->                                    <button                                              
+                                               id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                             <i class="fa fa-shopping-cart"></i>
                                             <span>Ajouter au panier</span>
                                             <form id="addtocart" action="{{route('ajoutpanier')}}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="product_id" id="p_id" value="{{$p->id}}">
-                                                <input type="hidden" name="quantity" id="qty" value="1">
-                                            </form>
-                                        </a>
 
-
-
+                                                <input type="hidden" name="product_id" id="product_id" value="{{$p->id}}">
+                                                <input type="hidden" name="quantite" id="quantite"  > 
+                                            </form> 
+                                        </button> 
                                     </div>
 
                                     <div class="mt-2 mt-md-3 border-product">
@@ -954,3 +921,18 @@
     </div>
  
 @endsection
+
+@push('scripts')
+<script>
+$("#cartEffect").on('click',function()
+   {
+    // Sélectionner l'élément input et récupérer sa valeur
+    var input = document.getElementById("q").value;
+    document.getElementById("quantite").value= input;
+    $('#addtocart').submit();
+    })
+</script>
+@endpush
+
+
+

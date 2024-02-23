@@ -60,7 +60,7 @@
                             <ul>
                                 @foreach($categories_share as $ch)
                                 <li>
-                                    <a href="{{route('shop')}}" class="font-dark">{{$ch->nom}}</a>
+                                    <a href="{{route('shop')}}" class="font-dark">{{$ch->getNom()}}</a>
                                 </li>
                                 @endforeach
                                

@@ -30,9 +30,16 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 
 Route::get('/wishlist',[WishlistController::class,'index'])->name('wishlist');
 
-//Route::get('/cart',[CartController::class,'index'])->name('panier');
+Route::get('/cart',[CartController::class,'index'])->name('panier');
 
-Route::post('panier',[CartController::class,'add'])->name('ajoutpanier');
+Route::post('/cart',[CartController::class,'add'])->name('ajoutpanier');
+
+Route::put('/cart',[CartController::class,'updateCart'])->name('updatepanier');
+
+Route::delete('/panier/remove',[CartController::class,'removeItem'])->name('retirerpanier');
+
+Route::delete('/panier/clear',[CartController::class,'clearCart'])->name('ajourpanier'); 
+
 
 
 require __DIR__.'/auth.php';

@@ -3,40 +3,7 @@
 
 @section('content')
    
-<div class="mobile-menu d-sm-none">
-        <ul>
-            <li>
-                <a href="demo3.php" class="active">
-                    <i data-feather="home"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="align-justify"></i>
-                    <span>Category</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="shopping-bag"></i>
-                    <span>Cart</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="heart"></i>
-                    <span>Wishlist</span>
-                </a>
-            </li>
-            <li>
-                <a href="user-dashboard.php">
-                    <i data-feather="user"></i>
-                    <span>Account</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+
     <style>
         a.disabled,
         a.disabled:hover .fas {
@@ -79,7 +46,7 @@
     <!-- Cart Section Start -->
     <section class="cart-section section-b-space">
         <div class="container">
-            @if($cartitem->count() > 0)
+          @if($cartitem->count() > 0) 
             <div class="row">
                 <div class="col-md-12 text-center">
                     <table class="table cart-table">
@@ -98,13 +65,12 @@
                             <tr>
                                 <td>
                                     <a href="../product/details.html">
-                                        <img src="../assets/images/fashion/product/front/24.jpg" class="blur-up lazyloaded"
+                                        <img src="{{asset('photo/'.$item->model->photo)}}" class="blur-up lazyloaded"
                                             alt="">
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="../product/details.html">A Porro
-                                        Voluptatibus Dolores</a>
+                                    <a href="../product/details.html">{{$item->name}}</a>
                                     <div class="mobile-cart-content row">
                                         <div class="col">
                                             <div class="qty-box">
@@ -114,40 +80,35 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <h2>$18</h2>
-                                        </div>
-                                        <div class="col">
-                                            <h2 class="td-color">
-                                                <a href="javascript:void(0)">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </h2>
-                                        </div>
                                     </div>
+                                </td>     
+                                <td>
+                                
+                                    <h2 class="td-color">{{$item->price}}CFA</h2>
                                 </td>
                                 <td>
-                                    <h2>$18</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
+                                  <div class="qty-box">
                                         <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
+                                            <input type="number" name="quantite" onchange="updateQuantite(this)"
+                                                data-rowid="{{$item->rowId}}"
+                                                class="form-control input-number" value="{{$item->qty}}">
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <h2 class="td-color">$18.00</h2>
+                                    <h2 class="td-color">{{$item->subtotal()}}</h2>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0)">
+                                    <a onclick="event.preventDefault();document.getElementById('foo').submit()" href="">
                                         <i class="fas fa-times"></i>
                                     </a>
+                                    <form id="foo" action="{{route('retirerpanier')}}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                    <input type="hidden" id="r_id" name="r_id" value="{{$item->rowId}}">
+                                    </form>
                                 </td>
                             </tr>
-
-                            
                         @endforeach
                         </tbody>
                     </table>
@@ -198,10 +159,10 @@
                                     <div class="total-details">
                                         <div class="top-details">
                                             <h3>Cart Totals</h3>
-                                            <h6>Sub Total <span>$26.00</span></h6>
-                                            <h6>Tax <span>$5.46</span></h6>
+                                            <h6>Sub Total <span>{{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->subtotal()}}</span></h6>
+                                            <h6>Tax <span>{{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->tax()}}</span></h6>
 
-                                            <h6>Total <span>$31.46</span></h6>
+                                            <h6>Total <span>{{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->total()}}</span></h6>
                                         </div>
                                         <div class="bottom-details">
                                             <a href="checkout">Process Checkout</a>
@@ -222,10 +183,34 @@
                     </a>
                 </div>
               </div>
-            @endif 
+          @endif 
         </div>
     </section>
+
+
+    <form id="update" action="{{route('updatepanier')}}" method="post">
+        @csrf
+        @method('put')
+        <input type="hidden" id="rowId" name="rowId">
+        <input type="hidden" id="quantite" name="quantite">
+    </form>
+  
 @endsection
+
+@push('scripts')
+<script>
+
+function updateQuantite(qty)
+            {
+                $('#rowId').val($(qty).data('rowid'));
+                console.log($('#quantite').val($(qty).val()));   
+                $('#update').submit();
+            }
+    $(function() {
+        
+    })
+</script>
+@endpush
    
 
    
