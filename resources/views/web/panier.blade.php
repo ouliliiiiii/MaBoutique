@@ -83,18 +83,30 @@
                                     </div>
                                 </td>     
                                 <td>
-                                    <h2 class="td-color">{{$item->price}}</h2>
+                                
+                                    <h2 class="td-color">{{$item->price}}CFA</h2>
                                 </td>
                                 <td>
-                                    <h2 class="td-color">{{$item->qty}}</h2>
+                                  <div class="qty-box">
+                                        <div class="input-group">
+                                            <input type="number" name="quantite" onchange="updateQuantite(this)"
+                                                data-rowid="{{$item->rowId}}"
+                                                class="form-control input-number" value="{{$item->qty}}">
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
-                                    <h2 class="td-color">{{$item->price*$item->qty}}</h2>
+                                    <h2 class="td-color">{{$item->subtotal()}}</h2>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0)">
+                                    <a onclick="event.preventDefault();document.getElementById('foo').submit()" href="">
                                         <i class="fas fa-times"></i>
                                     </a>
+                                    <form id="foo" action="{{route('retirerpanier')}}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                    <input type="hidden" id="r_id" name="r_id" value="{{$item->rowId}}">
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -175,7 +187,30 @@
         </div>
     </section>
 
+
+    <form id="update" action="{{route('updatepanier')}}" method="post">
+        @csrf
+        @method('put')
+        <input type="hidden" id="rowId" name="rowId">
+        <input type="hidden" id="quantite" name="quantite">
+    </form>
+  
 @endsection
+
+@push('scripts')
+<script>
+
+function updateQuantite(qty)
+            {
+                $('#rowId').val($(qty).data('rowid'));
+                console.log($('#quantite').val($(qty).val()));   
+                $('#update').submit();
+            }
+    $(function() {
+        
+    })
+</script>
+@endpush
    
 
    

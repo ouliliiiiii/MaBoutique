@@ -38,12 +38,17 @@ class CartController extends Controller
     return redirect()->back();
   }
 
-  public function removeItem(Request $request)
+  public function updateCart(Request $request)
   {
-    $product_id=$request->product_id;
-    dd($product_id);
-    Cart::instance('cart')->remove($product_id);
-    return redirect()->back();
+
+    Cart::instance('cart')->update($request->rowId,$request->input('quantite'));
+    return redirect()->route('panier');
+  }
+
+ public function removeItem(Request $request)
+  {
+    Cart::instance('cart')->remove($request->input('r_id'));
+    return redirect()->route('panier');
   }
 
 
