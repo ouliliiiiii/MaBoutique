@@ -38,7 +38,7 @@ Route::put('/cart',[CartController::class,'updateCart'])->name('updatepanier');
 
 Route::delete('/panier/remove',[CartController::class,'removeItem'])->name('retirerpanier');
 
-Route::delete('/panier/clear',[CartController::class,'clearCart'])->name('ajourpanier'); 
+Route::delete('/panier/clear',[CartController::class,'clearCart'])->name('ajourpanier');
 
 
 
