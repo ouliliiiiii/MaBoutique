@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProduitsController;
 use App\Http\Controllers\RechercheController;
 use App\Http\Controllers\WishlistController;
+use App\Models\Comment;
 use App\Models\Produits;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +42,13 @@ Route::delete('/panier/remove',[CartController::class,'removeItem'])->name('reti
 
 Route::delete('/panier/clear',[CartController::class,'clearCart'])->name('ajourpanier');
 
+Route::post('/detail/{id}',[CommentController::class,'store'])->name('commentaire');
+
 
 
 require __DIR__.'/auth.php';
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
