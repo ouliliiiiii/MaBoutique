@@ -89,7 +89,7 @@ p
                                         <span class="badge badge-grey-color">{{$p->category->nom}}</span>
                                     </div>
                                     @if ($p->is_solde == true)
-                                        <h3 class="price-detail">{{$p->remise($p->prix, $p->remise)}} CFA</h3>
+                                        <h3 class="price-detail">CFA</h3>
                                         <del> {{$p->prix}} CFA</del>
                                         <span> - {{$p->remise}} %</span>
                                     @else
@@ -483,30 +483,23 @@ p
                                             </li>
                                         </ul>
                                         <div class="review-box">
-                                            <form class="row g-4">
-                                                <div class="col-12 col-md-6">
-                                                    <label class="mb-1" for="name">Name</label>
-                                                    <input type="text" class="form-control" id="name"
-                                                        placeholder="Enter your name" required="">
-                                                </div>
-
-                                                <div class="col-12 col-md-6">
-                                                    <label class="mb-1" for="id">Email Address</label>
-                                                    <input type="email" class="form-control" id="id"
-                                                        placeholder="Email Address" required="">
-                                                </div>
-
+                                          
+                                            <form class="row g-4" action="" method="post">
+                                                @csrf
                                                 <div class="col-12">
                                                     <label class="mb-1" for="comments">Comments</label>
                                                     <textarea class="form-control" placeholder="Leave a comment here"
-                                                        id="comments" style="height: 100px" required=""></textarea>
+                                                        id="comments" style="height: 100px" name="comment " required=""></textarea>
                                                 </div>
-
+                                                <input type="hidden" name="produit_id" value="{{$p->id}}">
+                                                <input type="hidden" name="user_id" value="{{Illuminate\Support\Facades\Auth::user()->id}}">
                                                 <div class="col-12">
-                                                    <button type="submit"
-                                                        class="btn default-light-theme default-theme default-theme-2">Submit</button>
+                                                    <button type="submit" class="btn default-light-theme default-theme default-theme-2">
+                                                        Submit
+                                                    </button>
                                                 </div>
                                             </form>
+                                           
                                         </div>
                                     </div>
 

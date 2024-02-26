@@ -32,7 +32,6 @@ class ProduitsController extends Controller
         $size=$request->query('size'); 
         
     $categories = $this->cateService->all();
-   
     $produit = $this->proService->getProduits($request);
   
         return view('web.shop', [

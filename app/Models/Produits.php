@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produits extends Model
 {
@@ -16,8 +17,10 @@ class Produits extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function remise($prix, $remise) 
+    public function comment():HasMany
     {
-        return ($prix * $remise) / 100;
+        return $this->hasMany(Comment::class,'produit_id','id');
     }
+
+    
 }

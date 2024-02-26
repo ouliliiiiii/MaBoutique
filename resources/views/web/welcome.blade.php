@@ -256,7 +256,7 @@
                                     <div class="r-price">
                                         <div class="theme-color">
                                             <del>{{$pr->prix}} CFA</del> 
-                                            {{$pr->remise($pr->prix, $pr->remise)}} CFA
+                                          CFA
                                     </div>
                                         <div class="main-price">
                                             <ul class="rating mb-1 mt-0">

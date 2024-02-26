@@ -230,7 +230,7 @@
                                         <div class="main-price">    
                                                 <h5 class="ms-0"> {{$p->nom}}</h5>
                                             @if ($p->is_solde == true)
-                                             <h3 class="theme-color">{{$p->remise($p->prix, $p->remise)}} CFA</h3>
+                                             <h3 class="theme-color"> CFA</h3>
                                              <h3 class="theme-color"><del>{{$p->prix}} CFA</del></h3>
                                             @else
                                             <h3 class="theme-color">{{$p->prix}} CFA</h3>
