@@ -13,16 +13,6 @@ class Commentaire extends Migration
      */
     public function up()
     {
-        //
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
         Schema::create('commentaire', function (Blueprint $table) {
             $table->id();
             $table->text('comment');
@@ -32,5 +22,15 @@ class Commentaire extends Migration
             $table->foreign('produit_id')->references('id')->on('produits')->onDelete('restrict');
             $table->timestamps();
         });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('commentaire');
     }
 }

@@ -22,5 +22,9 @@ class Produits extends Model
         return $this->hasMany(Comment::class,'produit_id','id');
     }
 
+    public function remise($prix, $remise)
+    {
+        return ($prix * $remise) / 100;
+    }
     
 }

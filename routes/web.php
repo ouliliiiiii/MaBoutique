@@ -52,3 +52,7 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/phpinfo', function() {
+    return phpinfo();
+});
