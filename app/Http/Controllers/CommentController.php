@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+//use App\Comment as AppComment;
 use App\Models\Comment;
+use App\Models\Commentaire as ModelsCommentaire;
 use App\Models\User;
+use Commentaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,19 +14,20 @@ class CommentController extends Controller
 {
     public function index()
     {
-        $user_id= Auth::user()->id;
-        return view ('web.detail',[
-            'user_id'=>$user_id,
-        ]);
+       
+       
     }
     public function store(Request $request)
     {
-
-        Comment::create([
-            'comment' => $request->comment,
-            'user_id' => $request->user_id,
-            'produit_id' => $request->produit_id,
-        ]);
+       /*  $request->validate([
+            'comment' => 'required',
+        ]); */
+        $comment= new ModelsCommentaire();
+        $comment->comment = request('comment');
+        $comment->produit_id= request('produit_id');
+        $comment->user_id= request('user_id');
+        $comment->save();
         return redirect()->back()->with("reussi");
     } 
+   
 }

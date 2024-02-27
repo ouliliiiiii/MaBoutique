@@ -1,7 +1,6 @@
 @extends('web.layouts.app')
 
 @section('content')
-p
     <section class="breadcrumb-section section-b-space" style="padding-top:20px;padding-bottom:20px;">
         <ul class="circles">
             <li></li>
@@ -484,37 +483,61 @@ p
                                         </ul>
                                         <div class="review-box">
                                           
-                                            <form class="row g-4" action="" method="post">
-                                                @csrf
+                                             <form action="{{route('commentaire')}}" method="post">
+                                                @csrf 
                                                 <div class="col-12">
                                                     <label class="mb-1" for="comments">Comments</label>
                                                     <textarea class="form-control" placeholder="Leave a comment here"
-                                                        id="comments" style="height: 100px" name="comment " required=""></textarea>
+                                                        id="comments" style="height: 100px" name="comment" required ></textarea>
                                                 </div>
+                                                @auth
                                                 <input type="hidden" name="produit_id" value="{{$p->id}}">
                                                 <input type="hidden" name="user_id" value="{{Illuminate\Support\Facades\Auth::user()->id}}">
                                                 <div class="col-12">
-                                                    <button type="submit" class="btn default-light-theme default-theme default-theme-2">
-                                                        Submit
+                                                        <button type="submit" class="pop">
+                                                            Envoyer
+                                                        </button>
+                                                 @else        
+                                             </form> 
+                                              
+                                                    <button  class="pop" id="myBtn">
+                                                           Envoyer
                                                     </button>
+                                                 @endauth      
+                                                        <!-- The Modal -->
+                                                            <div id="myModal" class="modal">
+                                                                    <div class="modal-content" >
+                                                                        <div class="row">
+                                                                            <div class="col-lg-10 mt-4">
+                                                                               <p> Veuillez vous connecter svp</p>
+                                                                            </div>
+                                                                            <div class="col-lg-2">
+                                                                                <span class="close" >&times;</span>
+                                                                            </div>
+                                                                        </div>  
+                                                                        <a href="{{route('login')}}">
+                                                                         <button  class=" mt-3 pop">Se connecter</button>
+                                                                        </a>         
+                                                                    </div>
+                                                            </div>
+                                                        <!-- The Modal -->                                          
                                                 </div>
-                                            </form>
-                                           
                                         </div>
                                     </div>
 
                                     <div class="col-12 mt-4">
                                         <div class="customer-review-box">
                                             <h4>Customer Reviews</h4>
-
-                                            <div class="customer-section">
+                                            @foreach($comment as $com)
+                                            <div class="customer-section" style="border:4px solid red">
                                                 <div class="customer-profile">
-                                                    <img src="{{asset('photo/'.$p->photo)}}"
+                                                
+                                                    <img src=""
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
-
-                                                <div class="customer-details">
-                                                    <h5>Mike K</h5>
+                                                <div class="customer-details" >
+                                                {{$com->user->name}}
+                                                    <h5>{{$com->comment}}</h5>
                                                     <ul class="rating my-2 d-inline-block">
                                                         <li>
                                                             <i class="fas fa-star theme-color"></i>
@@ -532,124 +555,13 @@ p
                                                             <i class="fas fa-star"></i>
                                                         </li>
                                                     </ul>
-                                                    <p class="font-light">I purchased my Tab S2 at Best Buy but I wanted
-                                                        to
-                                                        share my thoughts on Amazon. I'm not going to go over specs and
-                                                        such
-                                                        since you can read those in a hundred other places. Though I
-                                                        will
-                                                        say that the "new" version is preloaded with Marshmallow and now
-                                                        uses a Qualcomm octacore processor in place of the Exynos that
-                                                        shipped with the first gen.</p>
+                                                    <p class="font-light"></p>
 
-                                                    <p class="date-custo font-light">- Sep 08, 2021</p>
+                                                    <p class="date-custo font-light">{{$com->created_at}}</p>
                                                 </div>
                                             </div>
-
-                                            <div class="customer-section">
-                                                <div class="customer-profile">
-                                                    <img src="{{asset('photo/'.$p->photo)}}"
-                                                        class="img-fluid blur-up lazyload" alt="">
-                                                </div>
-
-                                                <div class="customer-details">
-                                                    <h5>Norwalker</h5>
-                                                    <ul class="rating my-2 d-inline-block">
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star"></i>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="font-light">Pros: Nice large(9.7") screen. Bright colors.
-                                                        Easy
-                                                        to setup and get started. Arrived on time. Cons: a bit slow on
-                                                        response, but expected as tablet is 2 generations old. But works
-                                                        fine and good value for the money.</p>
-
-                                                    <p class="date-custo font-light">- Sep 08, 2021</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="customer-section">
-                                                <div class="customer-profile">
-                                                    <img src="../assets/images/inner-page/review-image/3.jpg"
-                                                        class="img-fluid blur-up lazyload" alt="">
-                                                </div>
-
-                                                <div class="customer-details">
-                                                    <h5>B. Perdue</h5>
-                                                    <ul class="rating my-2 d-inline-block">
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star"></i>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="font-light">Love the processor speed and the sensitivity
-                                                        of
-                                                        the touch screen.</p>
-
-                                                    <p class="date-custo font-light">- Sep 08, 2021</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="customer-section">
-                                                <div class="customer-profile">
-                                                    <img src="../assets/images/inner-page/review-image/4.jpg"
-                                                        class="img-fluid blur-up lazyload" alt="">
-                                                </div>
-
-                                                <div class="customer-details">
-                                                    <h5>MSL</h5>
-                                                    <ul class="rating my-2 d-inline-block">
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star theme-color"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star"></i>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fas fa-star"></i>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="font-light">I purchased the Tablet May 2017 and now April
-                                                        2019
-                                                        I have to charge it everyday. I don't watch movies on it..just
-                                                        play
-                                                        a game or two while on lunch. I guess now I need to power it
-                                                        down
-                                                        for future use.</p>
-
-                                                    <p class="date-custo font-light">- Sep 08, 2021</p>
-                                                </div>
-                                            </div>
+                                            @endforeach
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -912,7 +824,7 @@ p
             </div>
         </div>
     </div>
- 
+
 @endsection
 
 @push('scripts')
@@ -925,6 +837,32 @@ $("#cartEffect").on('click',function()
     $('#addtocart').submit();
     })
 </script>
+<script>
+    var modal = document.getElementById("myModal");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() 
+    {
+    modal.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) 
+    {
+    if (event.target == modal) 
+    {
+        modal.style.display = "none";
+    }
+    }
+</script>
+
+
 @endpush
 
 

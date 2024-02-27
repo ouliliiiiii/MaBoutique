@@ -8,6 +8,7 @@ use App\Http\Controllers\ProduitsController;
 use App\Http\Controllers\RechercheController;
 use App\Http\Controllers\WishlistController;
 use App\Models\Comment;
+use App\Models\Commentaire;
 use App\Models\Produits;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,10 @@ Route::delete('/panier/remove',[CartController::class,'removeItem'])->name('reti
 
 Route::delete('/panier/clear',[CartController::class,'clearCart'])->name('ajourpanier'); 
 
-Route::post('/detail/{id}',[CommentController::class,'store'])->name('commentaire');
+Route::get('/affichecommentaire',[CommentController::class,'index'])->name('affichecomm');
+
+Route::post('/comment',[CommentController::class,'store'])->name('commentaire');
+
 
 
 

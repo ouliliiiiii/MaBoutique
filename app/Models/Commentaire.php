@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Comment extends Model
+class Commentaire extends Model
 {
     use HasFactory;
-
+    protected $table='commentaires';
+    protected $id='id';
     protected $fillable=['comment','produit_id','user_id'];
+
     public function produits():BelongsTo
     {
         return $this->belongsTo(produits::class);

@@ -44,8 +44,8 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
-    public function comment():HasMany
+    public function commentaire():HasMany
     {
-        return $this->hasMany(Comment::class,'produit_id','id');
+        return $this->hasMany(Commentaire::class,'produit_id','id');
     }
 }

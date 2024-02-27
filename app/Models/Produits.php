@@ -17,9 +17,9 @@ class Produits extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function comment():HasMany
+    public function commentaire():HasMany
     {
-        return $this->hasMany(Comment::class,'produit_id','id');
+        return $this->hasMany(Commentaire::class,'produit_id','id');
     }
 
     

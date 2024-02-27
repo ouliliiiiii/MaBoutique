@@ -9,6 +9,7 @@ use App\Models\Produits;
 use Illuminate\Http\Request;
 use App\Interfaces\CategorieInterface;
 use App\Interfaces\ProduitsInterface;
+use App\Models\Commentaire;
 
 class ProduitsController extends Controller
 {
@@ -73,6 +74,7 @@ class ProduitsController extends Controller
      */
     public function show($id)
     {
+          $comment=Commentaire::where('produit_id', '=', $id)->orderBy('created_at', 'DESC')->get()->take(5);
         //pour recuperer le detail du produits passe en parametre
             $p = Produits::findOrFail($id);
 
@@ -80,7 +82,8 @@ class ProduitsController extends Controller
             $produits=Produits::where('id', '!=', $id)->inRandomOrder('id')->get()->take(6);
             return view('web.detail', [
                 'p' => $p,
-                'produits' => $produits
+                'produits' => $produits,
+                'comment'=> $comment
         ]);
     }
 
