@@ -54,5 +54,6 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/phpinfo', function() {
-    return phpinfo();
+    dd(Comment::all());
+    //return phpinfo();
 });

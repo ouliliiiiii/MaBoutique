@@ -10,6 +10,10 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $table = "commentaire";
+
+    protected $id = "id";
+
     protected $fillable=['comment','produit_id','user_id'];
     public function produits():BelongsTo
     {

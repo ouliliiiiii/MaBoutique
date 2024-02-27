@@ -244,10 +244,16 @@
                          @empty
                          <div class="col-lg-12 text-center" >
                             <h2 style="margin-top: 12%;">
-                                Aucun resultat trouve pour : <?php  echo $_GET['q'] ?>
-                            </h2>     
+                                 <?php  if (isset($_GET['q'])) {
+                                    # code...
+                                    ?>
+                                    <p>Aucun resultat trouve pour :</p> <?php echo $_GET['q'];?>
+                                    <?php
+                                }
+                                ?>
+                            </h2>
                              </div>
-                           
+                             
                         @endforelse
                     </div>
                     <nav class="page-section">
