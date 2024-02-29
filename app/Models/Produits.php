@@ -21,6 +21,6 @@ class Produits extends Model
     {
         return $this->hasMany(Commentaire::class,'produit_id','id');
     }
-
+  
     
 }

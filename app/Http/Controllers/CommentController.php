@@ -19,9 +19,7 @@ class CommentController extends Controller
     }
     public function store(Request $request)
     {
-       /*  $request->validate([
-            'comment' => 'required',
-        ]); */
+       
         $comment= new ModelsCommentaire();
         $comment->comment = request('comment');
         $comment->produit_id= request('produit_id');

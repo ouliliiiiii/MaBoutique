@@ -88,9 +88,10 @@
                                         <span class="badge badge-grey-color">{{$p->category->nom}}</span>
                                     </div>
                                     @if ($p->is_solde == true)
-                                        <h3 class="price-detail">CFA</h3>
+                                        <h3 class="price-detail">{{\App\Proc\Procedure::remise($p->prix,$p->remise)}} CFA</h3>
                                         <del> {{$p->prix}} CFA</del>
                                         <span> - {{$p->remise}} %</span>
+                                       
                                     @else
                                         <h3 class="price-detail">{{$p->prix}} CFA</h3>
                                     @endif

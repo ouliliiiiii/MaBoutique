@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FinshopController;
 use App\Http\Controllers\ProduitsController;
 use App\Http\Controllers\RechercheController;
 use App\Http\Controllers\WishlistController;
@@ -46,6 +47,8 @@ Route::delete('/panier/clear',[CartController::class,'clearCart'])->name('ajourp
 Route::get('/affichecommentaire',[CommentController::class,'index'])->name('affichecomm');
 
 Route::post('/comment',[CommentController::class,'store'])->name('commentaire');
+
+Route::get('/finshop',[FinshopController::class,'index'])->name('finshop');
 
 
 

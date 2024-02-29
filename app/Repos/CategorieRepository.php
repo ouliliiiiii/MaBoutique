@@ -19,5 +19,6 @@ class CategorieRepository implements CategorieInterface
         $produit=Produits::where('is_solde',true)->get()->take(6);
         return $produit;
     }
+  
 
 }

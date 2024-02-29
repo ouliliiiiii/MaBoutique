@@ -124,8 +124,8 @@
                         </div>
                         <div class="col-sm-5 col-7">
                             <div class="left-side-button float-start">
-                                <a href="../shop.html" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
-                                    <i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                                <a href="{{route('shop')}}" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
+                                    <i class="fas fa-arrow-left"></i> Continuer vos achats</a>
                             </div>
                         </div>
                     </div>
@@ -134,23 +134,11 @@
                 <div class="cart-checkout-section">
                     <div class="row g-4">
                         <div class="col-lg-4 col-sm-6">
-                            <div class="promo-section">
-                                <form class="row g-3">
-                                    <div class="col-7">
-                                        <input type="text" class="form-control" id="number" placeholder="Coupon Code">
-                                    </div>
-                                    <div class="col-5">
-                                        <button class="btn btn-solid-default rounded btn">Apply Coupon</button>
-                                    </div>
-                                </form>
-                            </div>
+                         
                         </div>
 
                         <div class="col-lg-4 col-sm-6 ">
-                            <div class="checkout-button">
-                                <a href="checkout" class="btn btn-solid-default btn fw-bold">
-                                    Check Out <i class="fas fa-arrow-right ms-1"></i></a>
-                            </div>
+                           
                         </div>
 
                         <div class="col-lg-4">
@@ -158,14 +146,14 @@
                                 <div class="cart-box-details">
                                     <div class="total-details">
                                         <div class="top-details">
-                                            <h3>Cart Totals</h3>
+                                            <h3>Total panier</h3>
                                             <h6>Sub Total <span>{{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->subtotal()}}</span></h6>
                                             <h6>Tax <span>{{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->tax()}}</span></h6>
 
                                             <h6>Total <span>{{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->total()}}</span></h6>
                                         </div>
                                         <div class="bottom-details">
-                                            <a href="checkout">Process Checkout</a>
+                                            <a href="{{route('finshop')}}">Passer a la caisse</a>
                                         </div>
                                     </div>
                                 </div>
