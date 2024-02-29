@@ -54,6 +54,12 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/phpinfo', function() {
-    dd(Comment::all());
-    //return phpinfo();
+    if (!Auth::user()) {
+        # code...
+        return response()->json([
+            'success' => false,
+            'message' => 'Vous devez vous connecter pour pouvoir commenter'
+        ]);
+    }
+    dd();
 });

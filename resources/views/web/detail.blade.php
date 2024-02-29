@@ -35,7 +35,7 @@ p
                                      <div class="col-lg-2">
                                         <div class="details-image-vertical black-slide rounded">
                                             <div>
-                                                <img src="{{asset('photo/'.$p->photo)}}"
+                                                <img src="{{Voyager::image($p->photo)}}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </div>
                                             <div>
@@ -55,7 +55,7 @@ p
                                     <div class="col-lg-10" >
                                         <div class="details-image-1 ratio_asos">
                                             <div>
-                                                <img src="{{asset('photo/'.$p->photo)}}" id="zoom_01"
+                                                <img src="{{Voyager::image($p->photo)}}" id="zoom_01"
                                                     data-zoom-image=""
                                                     class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="">
                                             </div>
@@ -92,6 +92,7 @@ p
                                         <h3 class="price-detail">CFA</h3>
                                         <del> {{$p->prix}} CFA</del>
                                         <span> - {{$p->remise}} %</span>
+                                        <h3 class="price-detail">{{\App\Proc\Procedure::remise($p->prix, $p->remise)}} CFA</h3>
                                     @else
                                         <h3 class="price-detail">{{$p->prix}} CFA</h3>
                                     @endif

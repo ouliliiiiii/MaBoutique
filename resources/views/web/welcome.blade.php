@@ -1,43 +1,10 @@
 @extends('web.layouts.app')
 
 @section('content')
-   <!--  <div class="mobile-menu d-sm-none">
-        <ul>
-            <li>
-                <a href="demo3.php" class="active">
-                    <i data-feather="home"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="align-justify"></i>
-                    <span>Category</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="shopping-bag"></i>
-                    <span>Cart</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i data-feather="heart"></i>
-                    <span>Wishlist</span>
-                </a>
-            </li>
-            <li>
-                <a href="user-dashboard.php">
-                    <i data-feather="user"></i>
-                    <span>Account</span>
-                </a>
-            </li>
-        </ul>
-    </div> -->
+ 
     <section class="pt-0 poster-section">
         <div class="poster-image slider-for custome-arrow classic-arrow" >
-            <div>
+            <div> 
                 <img src="/photo/orgie3.png" style="max-height: 650px;" class="img-fluid blur-up lazyload" alt="">
             </div>
             <div>
@@ -186,7 +153,7 @@
                         <div>
                             
                             <a href="shop-left-sidebar.html" class="category-wrap category-padding">
-                                <img src="{{asset('photo/'.$cat->getPhoto())}}" class="bg-img blur-up lazyload"
+                                <img src="{{Voyager::image($cat->getPhoto(), 'medium')}}" class="bg-img blur-up lazyload"
                                     alt="category image">
                                 <div class="category-content category-text-1">
                                     <h3 class="the">{{$cat->getNom()}}</h3>

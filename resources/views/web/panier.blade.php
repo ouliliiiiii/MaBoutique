@@ -81,7 +81,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </td>     
+                                </td>
                                 <td>
                                 
                                     <h2 class="td-color">{{$item->price}}CFA</h2>
@@ -203,7 +203,7 @@
 function updateQuantite(qty)
             {
                 $('#rowId').val($(qty).data('rowid'));
-                console.log($('#quantite').val($(qty).val()));   
+                console.log($('#quantite').val($(qty).val()));
                 $('#update').submit();
             }
     $(function() {

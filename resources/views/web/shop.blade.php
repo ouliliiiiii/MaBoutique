@@ -201,7 +201,7 @@
                                     <div class="img-wrapper">
                                         <div class="front">
                                             <a href="{{route('detail', $p->id)}}">
-                                                <img src="{{ asset('photo/'.$p->photo)}}" class="bg-img blur-up lazyload" alt="">
+                                                <img src="{{Voyager::image($p->photo)}}" class="bg-img blur-up lazyload" alt="">
                                             </a>
                                         </div>
                                        
