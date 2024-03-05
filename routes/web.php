@@ -50,6 +50,10 @@ Route::post('/comment',[CommentController::class,'store'])->name('commentaire');
 
 Route::get('/finshop',[FinshopController::class,'index'])->name('finshop');
 
+Route::get('/detailcommande',function(){
+    return view('web.detailcommande');
+})->name('detailcommande');
+
 
 
 

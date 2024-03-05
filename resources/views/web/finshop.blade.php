@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-8">
-                    <form class="needs-validation" method="POST" action="place-order">
+                    <form class="needs-validation" method="get" action="{{route('detailcommande')}}">
                         <input type="hidden" name="_token" value="CVH6XgdFhoUV6OBdiTIlT2bviIidpb0qD6U1Vf68">
                         <div id="shippingAddress" class="row g-4">
                             <h3 class="mb-3 theme-color">Adresse de livraison</h3>
@@ -140,8 +140,8 @@
 
                 <div class="col-lg-4">
                     <div class="your-cart-box">
-                        <h3 class="mb-3 d-flex text-capitalize">Your cart<span
-                                class="badge bg-theme new-badge rounded-pill ms-auto bg-dark">0</span>
+                        <h3 class="mb-3 d-flex text-capitalize">Mon panier<span
+                                class="badge bg-theme new-badge rounded-pill ms-auto bg-dark"> {{Gloudemans\Shoppingcart\Facades\Cart::instance('cart')->content()->count()}}</span>
                         </h3>
                         <ul class="list-group mb-3">
 
@@ -149,14 +149,14 @@
 
                             <li class="list-group-item d-flex justify-content-between lh-condensed active">
                                 <div class="text-dark">
-                                    <h6 class="my-0">Tax</h6>
+                                    <h6 class="my-0">Taxe</h6>
                                     <small></small>
                                 </div>
-                                <span>$0.00</span>
+                                <span>0.00CFA</span>
                             </li>
                             <li class="list-group-item d-flex lh-condensed justify-content-between">
                                 <span class="fw-bold">Total (Franc cfa)</span>
-                                <strong>$0.00</strong>
+                                <strong>0.00CFA</strong>
                             </li>
                         </ul>
                     </div>
@@ -166,4 +166,4 @@
     </section>
     <!-- Cart Section End -->
    
-    @endsection
+@endsection

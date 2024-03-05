@@ -26,7 +26,7 @@ class CartController extends Controller
     if ($p->is_solde == false)
       $pr = $p->prix;
     elseif ($p->is_solde == true)
-      $pr = $p->remise($p->prix, $p->remise);
+      $pr =\App\Proc\Procedure::remise($p->prix,$p->remise);
 
     //fonction mise en place par le package ..... les attributs id name price qty sont definis par defaut au niveau du package 
     Cart::instance('cart')->add(
@@ -40,7 +40,6 @@ class CartController extends Controller
 
   public function updateCart(Request $request)
   {
-
     Cart::instance('cart')->update($request->rowId,$request->input('quantite'));
     return redirect()->route('panier');
   }
@@ -50,6 +49,4 @@ class CartController extends Controller
     Cart::instance('cart')->remove($request->input('r_id'));
     return redirect()->route('panier');
   }
-
-
 }
